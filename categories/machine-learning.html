@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Projects - Fernando Rodriguez</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">FR</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="artificial-intelligence.html" class="nav-link">Artificial Intelligence</a></li>
+                <li><a href="machine-learning.html" class="nav-link active">Machine Learning</a></li>
+                <li><a href="data-analytics.html" class="nav-link">Data Analytics</a></li>
+                <li><a href="backend.html" class="nav-link">Backend</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="category-page">
+        <div class="container">
+            <h1>Machine Learning Projects</h1>
+            
+            <section class="category-intro">
+                <p>Explore my machine learning work, featuring supervised and unsupervised learning models, feature engineering, model optimization, and predictive analytics applications.</p>
+            </section>
+
+            <section class="project-item">
+                <h2>ML Project 1: Classification Model</h2>
+                <p>A comprehensive classification project using ensemble methods and advanced feature engineering to predict outcomes with high accuracy.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h4>Algorithm Type</h4>
+                        <p>Ensemble Learning (Random Forest, Gradient Boosting)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Technologies</h4>
+                        <p>Scikit-learn, XGBoost, Pandas, NumPy</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Dataset Size</h4>
+                        <p>50,000+ samples | 25 features | 3 classes</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Performance</h4>
+                        <p>Accuracy: 94% | F1-Score: 0.93 | AUC-ROC: 0.97</p>
+                    </div>
+                </div>
+
+                <div class="project-walkthrough">
+                    <h3>Project Walkthrough</h3>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 1: Data Exploration & Analysis</h4>
+                        <p>Started with comprehensive exploratory data analysis (EDA) to understand feature distributions, identify missing values, and detect outliers. Created visualizations to identify patterns and correlations.</p>
+                    </div>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 2: Feature Engineering</h4>
+                        <p>Engineered new features through domain knowledge and statistical analysis. Applied scaling, normalization, and encoding techniques. Used correlation analysis to select the most relevant features for the model.</p>
+                    </div>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 3: Model Selection & Training</h4>
+                        <p>Compared multiple algorithms including Logistic Regression, Random Forest, and XGBoost. Used cross-validation and grid search for hyperparameter optimization. Selected ensemble methods for superior performance.</p>
+                    </div>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 4: Model Evaluation</h4>
+                        <p>Evaluated models using multiple metrics: accuracy, precision, recall, F1-score, and ROC-AUC. Analyzed confusion matrices and feature importance to understand model behavior.</p>
+                    </div>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 5: Production Deployment</h4>
+                        <p>Deployed the final model as a REST API using Flask/FastAPI. Implemented model monitoring, logging, and periodic retraining pipelines to maintain performance.</p>
+                    </div>
+                </div>
+
+                <div class="project-images">
+                    <div class="image-item">
+                        <img src="../assets/images/ml-project-1-img1.jpg" alt="ML Project 1 - Feature Importance">
+                        <p>Feature importance analysis</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../assets/images/ml-project-1-img2.jpg" alt="ML Project 1 - Confusion Matrix">
+                        <p>Confusion matrix & metrics</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-item">
+                <h2>ML Project 2: Regression & Prediction</h2>
+                <p>Advanced regression model for continuous value prediction with sophisticated feature interactions and time-series components.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h4>Algorithm Type</h4>
+                        <p>Regression (Gradient Boosting Regressor, Neural Networks)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Technologies</h4>
+                        <p>TensorFlow/Keras, LightGBM, Feature Engineering Tools</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Dataset Size</h4>
+                        <p>100,000+ time-series records | 40+ features</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Performance</h4>
+                        <p>RMSE: 0.032 | MAE: 0.018 | R²: 0.96</p>
+                    </div>
+                </div>
+
+                <div class="project-walkthrough">
+                    <h3>Project Walkthrough</h3>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 1: Time-Series Analysis</h4>
+                        <p>Analyzed temporal patterns and seasonality in the data. Decomposed time-series into trend, seasonal, and residual components. Identified key temporal features affecting predictions.</p>
+                    </div>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 2: Feature Engineering</h4>
+                        <p>Created lag features, rolling statistics, and interaction terms. Applied polynomial features for non-linear relationships. Used domain expertise to engineer meaningful business features.</p>
+                    </div>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 3: Model Development</h4>
+                        <p>Built and compared linear regression, ensemble methods, and deep learning models. Implemented ensemble stacking to combine strengths of multiple algorithms.</p>
+                    </div>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 4: Validation & Tuning</h4>
+                        <p>Used time-series cross-validation to prevent data leakage. Performed extensive hyperparameter tuning using Bayesian optimization. Analyzed residuals for patterns.</p>
+                    </div>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 5: Real-time Forecasting</h4>
+                        <p>Implemented real-time prediction pipeline with automatic retraining. Set up monitoring for model drift detection and performance degradation alerts.</p>
+                    </div>
+                </div>
+
+                <div class="project-images">
+                    <div class="image-item">
+                        <img src="../assets/images/ml-project-2-img1.jpg" alt="ML Project 2 - Predictions vs Actuals">
+                        <p>Prediction accuracy visualization</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../assets/images/ml-project-2-img2.jpg" alt="ML Project 2 - Performance Metrics">
+                        <p>Residual analysis & metrics</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-item">
+                <h2>ML Project 3: Clustering & Segmentation</h2>
+                <p>Unsupervised learning project for customer segmentation and pattern discovery in large-scale datasets.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h4>Algorithm Type</h4>
+                        <p>Clustering (K-Means, Hierarchical, DBSCAN)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Technologies</h4>
+                        <p>Scikit-learn, Dimensionality Reduction (PCA, t-SNE)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Dataset Size</h4>
+                        <p>1M+ customer records | 30 behavioral features</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Results</h4>
+                        <p>5 distinct customer segments | Silhouette Score: 0.68</p>
+                    </div>
+                </div>
+
+                <div class="project-walkthrough">
+                    <h3>Project Walkthrough</h3>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 1: Data Preprocessing</h4>
+                        <p>Handled missing values, scaled features to comparable ranges, and removed outliers. Prepared data for unsupervised learning algorithms.</p>
+                    </div>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 2: Dimensionality Reduction</h4>
+                        <p>Applied PCA to reduce dimensionality while preserving 95% of variance. Used t-SNE for visualization of high-dimensional clusters.</p>
+                    </div>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 3: Clustering Algorithm Selection</h4>
+                        <p>Tested multiple clustering algorithms including K-Means, DBSCAN, and hierarchical clustering. Determined optimal number of clusters using elbow method and silhouette analysis.</p>
+                    </div>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 4: Cluster Interpretation</h4>
+                        <p>Analyzed cluster characteristics and created customer personas. Identified key differentiators between segments for business insights.</p>
+                    </div>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Step 5: Business Application</h4>
+                        <p>Developed targeted strategies for each segment. Created dashboards for segment monitoring and applied insights to marketing and product decisions.</p>
+                    </div>
+                </div>
+
+                <div class="project-images">
+                    <div class="image-item">
+                        <img src="../assets/images/ml-project-3-img1.jpg" alt="ML Project 3 - Cluster Visualization">
+                        <p>t-SNE cluster visualization</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../assets/images/ml-project-3-img2.jpg" alt="ML Project 3 - Segment Profiles">
+                        <p>Customer segment profiles</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="navigation-links">
+                <a href="artificial-intelligence.html" class="btn btn-secondary">← Previous Category</a>
+                <a href="../index.html" class="btn btn-secondary">Back to Home</a>
+                <a href="data-analytics.html" class="btn btn-primary">Next Category →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Fernando Rodriguez. All rights reserved.</p>
+    </footer>
+</body>
+</html>
