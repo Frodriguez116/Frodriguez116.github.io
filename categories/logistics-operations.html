@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Operations Projects - Fernando Rodriguez</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">FR</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="artificial-intelligence.html" class="nav-link">Artificial Intelligence</a></li>
+                <li><a href="machine-learning.html" class="nav-link">Machine Learning</a></li>
+                <li><a href="data-analytics.html" class="nav-link">Data Analytics</a></li>
+                <li><a href="backend.html" class="nav-link">Backend</a></li>
+                <li><a href="logistics-operations.html" class="nav-link active">Logistics Operations</a></li>
+                <li><a href="linux.html" class="nav-link">Linux</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="category-page">
+        <div class="container">
+            <h1>Logistics Operations Projects</h1>
+            
+            <section class="category-intro">
+                <p>Explore my work in logistics and supply chain management systems, featuring database design, operational efficiency tools, inventory management, and real-world logistics solutions.</p>
+            </section>
+
+            <!-- Camera Logistics Operations System -->
+            <section class="project-item">
+                <h2>Camera Logistics Operations System</h2>
+                <p>A comprehensive database-driven logistics management system for tracking cameras, parts, manufacturers, and suppliers. Built with Java, JDBC, and SQL for enterprise-level supply chain operations.</p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h4>Architecture</h4>
+                        <p>Relational Database, JDBC, Java Swing GUI</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Technologies</h4>
+                        <p>Java, JDBC, SQL, MySQL/PostgreSQL, Swing</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Database Entities</h4>
+                        <p>4 Main Tables | 10+ Complex Queries | Relationships</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Key Features</h4>
+                        <p>Inventory Management | Supplier Tracking | Analytics</p>
+                    </div>
+                </div>
+
+                <div class="project-overview">
+                    <h3>System Overview</h3>
+                    <p>This logistics system provides complete visibility and management of camera equipment throughout the supply chain. It tracks inventory levels, manufacturer relationships, supplier management, and enables complex analytical queries for operational decision-making.</p>
+                </div>
+
+                <!-- Entity Relationship Diagram -->
+                <div class="entity-diagram">
+                    <h3>Entity Relationship Diagram</h3>
+                    <div class="diagram-container">
+                        <div class="entity-box store">
+                            <strong>STORE</strong>
+                            <hr>
+                            <small>StoreID (PK)</small><br>
+                            <small>StoreCity</small><br>
+                            <small>StoreState</small><br>
+                            <small>StoreName</small>
+                        </div>
+                        
+                        <div class="entity-box camera">
+                            <strong>CAMERA</strong>
+                            <hr>
+                            <small>CameraID (PK)</small><br>
+                            <small>CameraName</small><br>
+                            <small>Resolution</small><br>
+                            <small>StoreID (FK)</small><br>
+                            <small>ManufacturerID (FK)</small>
+                        </div>
+                        
+                        <div class="entity-box manufacturer">
+                            <strong>MANUFACTURER</strong>
+                            <hr>
+                            <small>ManufacturerID (PK)</small><br>
+                            <small>ManufacturerName</small><br>
+                            <small>ManufacturerCountry</small>
+                        </div>
+                        
+                        <div class="entity-box parts">
+                            <strong>PARTS_SUPPLIER</strong>
+                            <hr>
+                            <small>SupplierID (PK)</small><br>
+                            <small>SupplierName</small><br>
+                            <small>PartType</small><br>
+                            <small>ManufacturerID (FK)</small>
+                        </div>
+                    </div>
+                    <p class="diagram-note">Relationships: Store ← Camera → Manufacturer → Parts_Supplier</p>
+                </div>
+
+                <!-- Database Schema -->
+                <div class="database-schema">
+                    <h3>Database Schema</h3>
+                    
+                    <div class="schema-table">
+                        <h4>STORE Table</h4>
+                        <table>
+                            <tr>
+                                <th>Column</th>
+                                <th>Type</th>
+                                <th>Constraint</th>
+                            </tr>
+                            <tr>
+                                <td>StoreID</td>
+                                <td>INT</td>
+                                <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                            </tr>
+                            <tr>
+                                <td>StoreName</td>
+                                <td>VARCHAR(100)</td>
+                                <td>NOT NULL</td>
+                            </tr>
+                            <tr>
+                                <td>StoreCity</td>
+                                <td>VARCHAR(50)</td>
+                                <td>NOT NULL</td>
+                            </tr>
+                            <tr>
+                                <td>StoreState</td>
+                                <td>VARCHAR(2)</td>
+                                <td>NOT NULL</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="schema-table">
+                        <h4>CAMERA Table</h4>
+                        <table>
+                            <tr>
+                                <th>Column</th>
+                                <th>Type</th>
+                                <th>Constraint</th>
+                            </tr>
+                            <tr>
+                                <td>CameraID</td>
+                                <td>INT</td>
+                                <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                            </tr>
+                            <tr>
+                                <td>CameraName</td>
+                                <td>VARCHAR(100)</td>
+                                <td>NOT NULL</td>
+                            </tr>
+                            <tr>
+                                <td>Resolution</td>
+                                <td>VARCHAR(20)</td>
+                                <td>NOT NULL</td>
+                            </tr>
+                            <tr>
+                                <td>StoreID</td>
+                                <td>INT</td>
+                                <td>FOREIGN KEY → STORE(StoreID)</td>
+                            </tr>
+                            <tr>
+                                <td>ManufacturerID</td>
+                                <td>INT</td>
+                                <td>FOREIGN KEY → MANUFACTURER(ManufacturerID)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="schema-table">
+                        <h4>MANUFACTURER Table</h4>
+                        <table>
+                            <tr>
+                                <th>Column</th>
+                                <th>Type</th>
+                                <th>Constraint</th>
+                            </tr>
+                            <tr>
+                                <td>ManufacturerID</td>
+                                <td>INT</td>
+                                <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                            </tr>
+                            <tr>
+                                <td>ManufacturerName</td>
+                                <td>VARCHAR(100)</td>
+                                <td>NOT NULL</td>
+                            </tr>
+                            <tr>
+                                <td>ManufacturerCountry</td>
+                                <td>VARCHAR(50)</td>
+                                <td>NOT NULL</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="schema-table">
+                        <h4>PARTS_SUPPLIER Table</h4>
+                        <table>
+                            <tr>
+                                <th>Column</th>
+                                <th>Type</th>
+                                <th>Constraint</th>
+                            </tr>
+                            <tr>
+                                <td>SupplierID</td>
+                                <td>INT</td>
+                                <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                            </tr>
+                            <tr>
+                                <td>SupplierName</td>
+                                <td>VARCHAR(100)</td>
+                                <td>NOT NULL</td>
+                            </tr>
+                            <tr>
+                                <td>PartType</td>
+                                <td>VARCHAR(50)</td>
+                                <td>NOT NULL</td>
+                            </tr>
+                            <tr>
+                                <td>ManufacturerID</td>
+                                <td>INT</td>
+                                <td>FOREIGN KEY → MANUFACTURER(ManufacturerID)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- SQL Queries -->
+                <div class="sql-queries">
+                    <h3>Core SQL Queries (10)</h3>
+                    
+                    <div class="query-item">
+                        <h4>1. All Cameras in a Specific Store</h4>
+                        <pre><code class="sql">SELECT c.CameraID, c.CameraName, c.Resolution, m.ManufacturerName
+FROM CAMERA c
+JOIN MANUFACTURER m ON c.ManufacturerID = m.ManufacturerID
+WHERE c.StoreID = ?
+ORDER BY c.CameraName;</code></pre>
+                        <p><strong>Purpose:</strong> Retrieve all inventory at a specific store location</p>
+                    </div>
+
+                    <div class="query-item">
+                        <h4>2. Count of Cameras by Manufacturer</h4>
+                        <pre><code class="sql">SELECT m.ManufacturerName, COUNT(c.CameraID) as CameraCount
+FROM MANUFACTURER m
+LEFT JOIN CAMERA c ON m.ManufacturerID = c.ManufacturerID
+GROUP BY m.ManufacturerID, m.ManufacturerName
+ORDER BY CameraCount DESC;</code></pre>
+                        <p><strong>Purpose:</strong> Analyze inventory distribution by manufacturer</p>
+                    </div>
+
+                    <div class="query-item">
+                        <h4>3. Stores with Cameras from Specific Manufacturer</h4>
+                        <pre><code class="sql">SELECT DISTINCT s.StoreID, s.StoreName, s.StoreCity, s.StoreState
+FROM STORE s
+JOIN CAMERA c ON s.StoreID = c.StoreID
+JOIN MANUFACTURER m ON c.ManufacturerID = m.ManufacturerID
+WHERE m.ManufacturerName = ?
+ORDER BY s.StoreName;</code></pre>
+                        <p><strong>Purpose:</strong> Find store locations carrying specific brands</p>
+                    </div>
+
+                    <div class="query-item">
+                        <h4>4. Parts Suppliers by Manufacturer</h4>
+                        <pre><code class="sql">SELECT m.ManufacturerName, ps.SupplierName, ps.PartType
+FROM MANUFACTURER m
+JOIN PARTS_SUPPLIER ps ON m.ManufacturerID = ps.ManufacturerID
+ORDER BY m.ManufacturerName, ps.PartType;</code></pre>
+                        <p><strong>Purpose:</strong> Map supply chain relationships</p>
+                    </div>
+
+                    <div class="query-item">
+                        <h4>5. Total Inventory by Store Location</h4>
+                        <pre><code class="sql">SELECT s.StoreName, s.StoreCity, s.StoreState, COUNT(c.CameraID) as InventoryCount
+FROM STORE s
+LEFT JOIN CAMERA c ON s.StoreID = c.StoreID
+GROUP BY s.StoreID, s.StoreName, s.StoreCity, s.StoreState
+ORDER BY InventoryCount DESC;</code></pre>
+                        <p><strong>Purpose:</strong> Operational overview of inventory distribution</p>
+                    </div>
+
+                    <div class="query-item">
+                        <h4>6. Cameras by Resolution Type</h4>
+                        <pre><code class="sql">SELECT c.Resolution, COUNT(c.CameraID) as Count, 
+       GROUP_CONCAT(c.CameraName) as Models
+FROM CAMERA c
+GROUP BY c.Resolution
+ORDER BY Count DESC;</code></pre>
+                        <p><strong>Purpose:</strong> Product mix analysis</p>
+                    </div>
+
+                    <div class="query-item">
+                        <h4>7. Manufacturers with Supplies</h4>
+                        <pre><code class="sql">SELECT DISTINCT m.ManufacturerID, m.ManufacturerName, m.ManufacturerCountry, 
+       COUNT(ps.SupplierID) as SupplierCount
+FROM MANUFACTURER m
+LEFT JOIN PARTS_SUPPLIER ps ON m.ManufacturerID = ps.ManufacturerID
+GROUP BY m.ManufacturerID, m.ManufacturerName, m.ManufacturerCountry;</code></pre>
+                        <p><strong>Purpose:</strong> Supplier ecosystem analysis</p>
+                    </div>
+
+                    <div class="query-item">
+                        <h4>8. Full Supply Chain Details for Camera</h4>
+                        <pre><code class="sql">SELECT c.CameraName, c.Resolution, s.StoreName, s.StoreCity, 
+       m.ManufacturerName, m.ManufacturerCountry, ps.SupplierName, ps.PartType
+FROM CAMERA c
+JOIN STORE s ON c.StoreID = s.StoreID
+JOIN MANUFACTURER m ON c.ManufacturerID = m.ManufacturerID
+LEFT JOIN PARTS_SUPPLIER ps ON m.ManufacturerID = ps.ManufacturerID
+WHERE c.CameraID = ?;</code></pre>
+                        <p><strong>Purpose:</strong> Complete supply chain traceability</p>
+                    </div>
+
+                    <div class="query-item">
+                        <h4>9. Stores in Specific State with Camera Count</h4>
+                        <pre><code class="sql">SELECT s.StoreName, s.StoreCity, s.StoreState, COUNT(c.CameraID) as CameraCount
+FROM STORE s
+LEFT JOIN CAMERA c ON s.StoreID = c.StoreID
+WHERE s.StoreState = ?
+GROUP BY s.StoreID, s.StoreName, s.StoreCity, s.StoreState
+ORDER BY CameraCount DESC;</code></pre>
+                        <p><strong>Purpose:</strong> Regional inventory analysis</p>
+                    </div>
+
+                    <div class="query-item">
+                        <h4>10. Complex Join - Complete Operational View</h4>
+                        <pre><code class="sql">SELECT s.StoreName, c.CameraName, c.Resolution, m.ManufacturerName, 
+       m.ManufacturerCountry, ps.SupplierName, ps.PartType,
+       COUNT(DISTINCT c.CameraID) as CameraCount
+FROM STORE s
+LEFT JOIN CAMERA c ON s.StoreID = c.StoreID
+LEFT JOIN MANUFACTURER m ON c.ManufacturerID = m.ManufacturerID
+LEFT JOIN PARTS_SUPPLIER ps ON m.ManufacturerID = ps.ManufacturerID
+GROUP BY s.StoreID, c.CameraID, ps.SupplierID
+ORDER BY s.StoreName, c.CameraName;</code></pre>
+                        <p><strong>Purpose:</strong> Complete operational dashboard data</p>
+                    </div>
+                </div>
+
+                <!-- JDBC Implementation -->
+                <div class="jdbc-implementation">
+                    <h3>JDBC Implementation</h3>
+                    
+                    <div class="code-block">
+                        <h4>Database Connection & Query Execution</h4>
+                        <pre><code class="java">import java.sql.*;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+public class LogisticsOperationsSystem {
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/logistics_db";
+    private static final String USER = "root";
+    private static final String PASSWORD = "password";
+
+    // Initialize database connection
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(DB_URL, USER, PASSWORD);
+    }
+
+    // Query: Get all cameras in a store
+    public static void getCamerasInStore(int storeID, DefaultTableModel tableModel) {
+        String query = "SELECT c.CameraID, c.CameraName, c.Resolution, m.ManufacturerName " +
+                       "FROM CAMERA c " +
+                       "JOIN MANUFACTURER m ON c.ManufacturerID = m.ManufacturerID " +
+                       "WHERE c.StoreID = ? ORDER BY c.CameraName";
+        
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            
+            pstmt.setInt(1, storeID);
+            ResultSet rs = pstmt.executeQuery();
+            
+            tableModel.setRowCount(0);
+            while (rs.next()) {
+                tableModel.addRow(new Object[]{
+                    rs.getInt("CameraID"),
+                    rs.getString("CameraName"),
+                    rs.getString("Resolution"),
+                    rs.getString("ManufacturerName")
+                });
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Database error: " + e.getMessage());
+        }
+    }
+
+    // Query: Count cameras by manufacturer
+    public static void getCameraCountByManufacturer(DefaultTableModel tableModel) {
+        String query = "SELECT m.ManufacturerName, COUNT(c.CameraID) as CameraCount " +
+                       "FROM MANUFACTURER m " +
+                       "LEFT JOIN CAMERA c ON m.ManufacturerID = c.ManufacturerID " +
+                       "GROUP BY m.ManufacturerID, m.ManufacturerName " +
+                       "ORDER BY CameraCount DESC";
+        
+        try (Connection conn = getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+            
+            tableModel.setRowCount(0);
+            while (rs.next()) {
+                tableModel.addRow(new Object[]{
+                    rs.getString("ManufacturerName"),
+                    rs.getInt("CameraCount")
+                });
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Query: Inventory by store location
+    public static void getInventoryByStore(DefaultTableModel tableModel) {
+        String query = "SELECT s.StoreName, s.StoreCity, s.StoreState, " +
+                       "COUNT(c.CameraID) as InventoryCount " +
+                       "FROM STORE s " +
+                       "LEFT JOIN CAMERA c ON s.StoreID = c.StoreID " +
+                       "GROUP BY s.StoreID, s.StoreName, s.StoreCity, s.StoreState " +
+                       "ORDER BY InventoryCount DESC";
+        
+        try (Connection conn = getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+            
+            tableModel.setRowCount(0);
+            while (rs.next()) {
+                tableModel.addRow(new Object[]{
+                    rs.getString("StoreName"),
+                    rs.getString("StoreCity"),
+                    rs.getString("StoreState"),
+                    rs.getInt("InventoryCount")
+                });
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Add new camera to inventory
+    public static void addCamera(String cameraName, String resolution, 
+                                 int storeID, int manufacturerID) {
+        String query = "INSERT INTO CAMERA (CameraName, Resolution, StoreID, ManufacturerID) " +
+                       "VALUES (?, ?, ?, ?)";
+        
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            
+            pstmt.setString(1, cameraName);
+            pstmt.setString(2, resolution);
+            pstmt.setInt(3, storeID);
+            pstmt.setInt(4, manufacturerID);
+            
+            int rowsInserted = pstmt.executeUpdate();
+            if (rowsInserted > 0) {
+                JOptionPane.showMessageDialog(null, "Camera added successfully!");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error adding camera: " + e.getMessage());
+        }
+    }
+
+    // Search cameras by manufacturer
+    public static void searchByManufacturer(String manufacturerName, DefaultTableModel tableModel) {
+        String query = "SELECT DISTINCT s.StoreName, c.CameraName, c.Resolution " +
+                       "FROM STORE s " +
+                       "JOIN CAMERA c ON s.StoreID = c.StoreID " +
+                       "JOIN MANUFACTURER m ON c.ManufacturerID = m.ManufacturerID " +
+                       "WHERE m.ManufacturerName = ? ORDER BY s.StoreName";
+        
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            
+            pstmt.setString(1, manufacturerName);
+            ResultSet rs = pstmt.executeQuery();
+            
+            tableModel.setRowCount(0);
+            while (rs.next()) {
+                tableModel.addRow(new Object[]{
+                    rs.getString("StoreName"),
+                    rs.getString("CameraName"),
+                    rs.getString("Resolution")
+                });
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <h4>Java Swing GUI Panel</h4>
+                        <pre><code class="java">import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+public class LogisticsGUI extends JFrame {
+    private JTable resultsTable;
+    private DefaultTableModel tableModel;
+    private JComboBox<String> querySelector;
+
+    public LogisticsGUI() {
+        setTitle("Camera Logistics Operations System");
+        setSize(1000, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Setup main panel
+        JPanel mainPanel = new JPanel(new BorderLayout());
+        
+        // Control panel
+        JPanel controlPanel = new JPanel(new FlowLayout());
+        String[] queries = {
+            "Cameras in Store",
+            "Count by Manufacturer",
+            "Inventory by Store",
+            "Parts Suppliers",
+            "Supply Chain Detail"
+        };
+        querySelector = new JComboBox<>(queries);
+        controlPanel.add(new JLabel("Select Query:"));
+        controlPanel.add(querySelector);
+        
+        JButton executeBtn = new JButton("Execute");
+        executeBtn.addActionListener(e -> executeQuery());
+        controlPanel.add(executeBtn);
+
+        // Results table
+        tableModel = new DefaultTableModel();
+        resultsTable = new JTable(tableModel);
+        JScrollPane scrollPane = new JScrollPane(resultsTable);
+
+        mainPanel.add(controlPanel, BorderLayout.NORTH);
+        mainPanel.add(scrollPane, BorderLayout.CENTER);
+
+        add(mainPanel);
+        setVisible(true);
+    }
+
+    private void executeQuery() {
+        int queryIndex = querySelector.getSelectedIndex();
+        
+        switch(queryIndex) {
+            case 0: // Cameras in Store
+                setupCameraTableColumns();
+                LogisticsOperationsSystem.getCamerasInStore(1, tableModel);
+                break;
+            case 1: // Count by Manufacturer
+                setupManufacturerCountColumns();
+                LogisticsOperationsSystem.getCameraCountByManufacturer(tableModel);
+                break;
+            case 2: // Inventory by Store
+                setupStoreInventoryColumns();
+                LogisticsOperationsSystem.getInventoryByStore(tableModel);
+                break;
+        }
+        resultsTable.repaint();
+    }
+
+    private void setupCameraTableColumns() {
+        tableModel.setColumnIdentifiers(new String[]{"Camera ID", "Name", "Resolution", "Manufacturer"});
+    }
+
+    private void setupManufacturerCountColumns() {
+        tableModel.setColumnIdentifiers(new String[]{"Manufacturer", "Camera Count"});
+    }
+
+    private void setupStoreInventoryColumns() {
+        tableModel.setColumnIdentifiers(new String[]{"Store", "City", "State", "Inventory"});
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(LogisticsGUI::new);
+    }
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="technical-skills">
+                    <h3>Technical Skills Demonstrated</h3>
+                    <div class="skills-grid">
+                        <div class="skill-badge">Database Design & Normalization</div>
+                        <div class="skill-badge">SQL Query Optimization</div>
+                        <div class="skill-badge">JDBC Connection Management</div>
+                        <div class="skill-badge">PreparedStatement & Security</div>
+                        <div class="skill-badge">Java Swing GUI Development</div>
+                        <div class="skill-badge">Entity Relationship Modeling</div>
+                        <div class="skill-badge">Complex JOIN Operations</div>
+                        <div class="skill-badge">Aggregation & Grouping</div>
+                        <div class="skill-badge">ResultSet Processing</div>
+                        <div class="skill-badge">Supply Chain Logic</div>
+                    </div>
+                </div>
+
+                <!-- Business Impact -->
+                <div class="business-impact">
+                    <h3>Business Impact & Use Cases</h3>
+                    <div class="impact-item">
+                        <h4>📊 Inventory Management</h4>
+                        <p>Real-time visibility into camera stock levels across all store locations, enabling data-driven replenishment decisions.</p>
+                    </div>
+                    <div class="impact-item">
+                        <h4>🔗 Supply Chain Traceability</h4>
+                        <p>Complete mapping of suppliers, manufacturers, and parts relationships enables rapid problem identification and supplier management.</p>
+                    </div>
+                    <div class="impact-item">
+                        <h4>📈 Operational Analytics</h4>
+                        <p>10 diverse SQL queries support multiple analytics use cases from regional analysis to product mix optimization.</p>
+                    </div>
+                    <div class="impact-item">
+                        <h4>🎯 Scalability</h4>
+                        <p>Database architecture supports growth from single store to enterprise-wide operations with thousands of SKUs.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Fernando Rodriguez. All rights reserved.</p>
+    </footer>
+
+    <style>
+        .entity-diagram {
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        .diagram-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            align-items: start;
+        }
+
+        .entity-box {
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: white;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .entity-box.store { background-color: #007bff; }
+        .entity-box.camera { background-color: #28a745; }
+        .entity-box.manufacturer { background-color: #ff6b6b; }
+        .entity-box.parts { background-color: #ffc107; color: #333; }
+
+        .diagram-note {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        .database-schema {
+            margin: 2rem 0;
+        }
+
+        .schema-table {
+            margin: 1.5rem 0;
+        }
+
+        .schema-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        .schema-table th {
+            background-color: #007bff;
+            color: white;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .schema-table td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+        }
+
+        .schema-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .sql-queries {
+            margin: 2rem 0;
+        }
+
+        .query-item {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-left: 4px solid #007bff;
+            border-radius: 4px;
+        }
+
+        .query-item h4 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        .query-item pre {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+        }
+
+        .query-item code {
+            font-family: 'Courier New', monospace;
+        }
+
+        .jdbc-implementation {
+            margin: 2rem 0;
+        }
+
+        .code-block {
+            margin: 1.5rem 0;
+        }
+
+        .code-block h4 {
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .code-block pre {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1.5rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .technical-skills {
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-badge {
+            padding: 0.75rem 1rem;
+            background-color: #007bff;
+            color: white;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .business-impact {
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: #e8f4f8;
+            border-radius: 8px;
+        }
+
+        .impact-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: white;
+            border-left: 4px solid #28a745;
+            border-radius: 4px;
+        }
+
+        .impact-item h4 {
+            margin-top: 0;
+            color: #28a745;
+        }
+
+        .project-overview {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background-color: #e3f2fd;
+            border-radius: 8px;
+        }
+
+        .project-overview h3 {
+            color: #1565c0;
+            margin-top: 0;
+        }
+    </style>
+</body>
+</html>
