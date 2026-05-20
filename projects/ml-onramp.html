@@ -11,8 +11,28 @@
             color: white;
             padding: 30px;
             border-radius: 10px;
-            text-align: center;
             margin: 30px 0;
+        }
+        
+        .certification-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .certification-content {
+            text-align: center;
+        }
+
+        .certification-content h2 {
+            margin-top: 0;
+            font-size: 2em;
+        }
+
+        .certification-content p {
+            font-size: 1.1em;
+            margin: 15px 0;
         }
         
         .certification-image {
@@ -21,7 +41,47 @@
             margin: 20px auto;
             display: block;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .certificate-pdf {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .certificate-pdf iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
+        .certificate-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .certificate-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 1024px) {
+            .certification-container {
+                grid-template-columns: 1fr;
+            }
+
+            .certificate-pdf iframe {
+                height: 400px;
+            }
         }
         
         .step-container {
@@ -127,9 +187,18 @@
             <p class="subtitle">Comprehensive Guide to Machine Learning Fundamentals with Hands-On MATLAB Tasks</p>
 
             <div class="certification-banner">
-                <h2>📜 Certification Completed</h2>
-                <p>Machine Learning Onramp - MathWorks Training Program</p>
-               <object data="certificate.pdf" type="application/pdf" width="100%" height="600px">
+                <div class="certification-container">
+                    <div class="certification-content">
+                        <h2>📜 Certification Completed</h2>
+                        <p>Machine Learning Onramp</p>
+                        <p style="font-weight: bold;">MathWorks Training Program</p>
+                        <img src="https://mathworks.com/images/responsive/company/logo-mathworks-150.svg" alt="MathWorks Logo" class="certification-image">
+                        <a href="certificate.pdf" class="certificate-link" download>📥 Download Certificate</a>
+                    </div>
+                    <div class="certificate-pdf">
+                        <iframe src="certificate.pdf" title="ML Onramp Certificate"></iframe>
+                    </div>
+                </div>
             </div>
 
             <section class="project-item">
