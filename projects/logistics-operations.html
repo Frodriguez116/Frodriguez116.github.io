@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Logistics Operations System - Fernando Rodriguez</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        .entity-diagram {
+            background: #f5f5f5;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .entity-box {
+            display: inline-block;
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 10px;
+            background: white;
+            border-radius: 4px;
+            min-width: 120px;
+        }
+        .relationship-line {
+            color: #666;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+        .erd-section {
+            background: #f9f9f9;
+            border-left: 4px solid #007bff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .query-example {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .query-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .query-code {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+        }
+        .jdbc-code {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            overflow-x: auto;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+        .table-info {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .table-title {
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+        .attribute-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .attribute-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .attribute-list li:last-child {
+            border-bottom: none;
+        }
+        .pk {
+            color: #d9534f;
+            font-weight: bold;
+        }
+        .fk {
+            color: #0275d8;
+            font-weight: bold;
+        }
+        .entity-relationship {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">FR</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../categories/backend.html" class="nav-link active">Backend</a></li>
+                <li><a href="../categories/artificial-intelligence.html" class="nav-link">AI</a></li>
+                <li><a href="../categories/machine-learning.html" class="nav-link">ML</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="category-page">
+        <div class="container">
+            <h1>Camera Logistics Operations System</h1>
+            <p class="subtitle">Comprehensive Database Design & JDBC Application for Multi-Store Camera Franchise</p>
+
+            <section class="project-item">
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h4>Project Type</h4>
+                        <p>Database Design & JDBC Application</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Technologies</h4>
+                        <p>MySQL, JDBC, Java Swing, SQL</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Database Entities</h4>
+                        <p>4 Core Tables with Relationships</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Query Complexity</h4>
+                        <p>10 Advanced SQL Queries</p>
+                    </div>
+                </div>
+
+                <section class="erd-section">
+                    <h2>System Overview</h2>
+                    <p>This camera logistics system manages a multi-store franchise operation, tracking manufacturer relationships, parts supplier networks, inventory management, and store locations. The system enables complex queries across four interconnected entities to provide business intelligence and operational insights.</p>
+                </section>
+
+                <section class="project-walkthrough">
+                    <h2>Database Schema Design</h2>
+                    
+                    <h3>Entity Relationship Model</h3>
+                    <div class="entity-diagram">
+                        <div class="entity-box"><strong>Store</strong><br>(1:M)</div>
+                        <div class="relationship-line">↔</div>
+                        <div class="entity-box"><strong>Camera</strong></div>
+                        <div class="relationship-line">↔</div>
+                        <div class="entity-box"><strong>Manufacturer</strong><br>(1:M)</div>
+                        <br><br>
+                        <div class="entity-box"><strong>Camera</strong></div>
+                        <div class="relationship-line">↔</div>
+                        <div class="entity-box"><strong>Parts Supplier</strong><br>(1:M)</div>
+                    </div>
+
+                    <h3>Entity Relationships Explained</h3>
+                    <div class="walkthrough-step">
+                        <h4>Store (1:M) Camera</h4>
+                        <p>A single store location can stock and sell multiple camera models. Each store is identified by Store ID and maintains inventory across various camera products.</p>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>Camera (1:1) Manufacturer</h4>
+                        <p>Each specific camera model is assembled by exactly one manufacturer. The manufacturer relationship is critical for tracking product sourcing and assembly location.</p>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>Manufacturer (1:M) Camera</h4>
+                        <p>A manufacturer can assemble and produce multiple different camera models, enabling efficient supply chain management and diversified product offerings.</p>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>Camera (1:1) Parts Supplier</h4>
+                        <p>Each camera model receives specialized parts from exactly one parts supplier that specializes in components for that particular camera.</p>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>Parts Supplier (1:M) Camera</h4>
+                        <p>A single parts supplier can provide specialized components to multiple camera models, creating economies of scale in parts manufacturing.</p>
+                    </div>
+                </section>
+
+                <section class="project-walkthrough">
+                    <h2>Database Tables & Attributes</h2>
+
+                    <div class="table-info">
+                        <div class="table-title">Store Table</div>
+                        <ul class="attribute-list">
+                            <li><span class="pk">PK: store_ID</span> - Primary Key</li>
+                            <li>store_name - Franchise name (shared across locations)</li>
+                            <li>store_address - Physical address of store location</li>
+                            <li>store_city - City where store is located</li>
+                        </ul>
+                    </div>
+
+                    <div class="table-info">
+                        <div class="table-title">Camera Table</div>
+                        <ul class="attribute-list">
+                            <li><span class="pk">PK: camera_ID</span> - Primary Key</li>
+                            <li>camera_name - Product name/model</li>
+                            <li>camera_price - Retail price</li>
+                            <li>camera_quantity - Inventory quantity</li>
+                            <li><span class="fk">FK: store_ID</span> - References Store table</li>
+                            <li><span class="fk">FK: manufacturer_ID</span> - References Manufacturer table</li>
+                            <li><span class="fk">FK: supplier_ID</span> - References Parts Supplier table</li>
+                        </ul>
+                    </div>
+
+                    <div class="table-info">
+                        <div class="table-title">Manufacturer Table</div>
+                        <ul class="attribute-list">
+                            <li><span class="pk">PK: manufacturer_ID</span> - Primary Key</li>
+                            <li>brand_name - Brand/manufacturer name</li>
+                            <li>manufacturer_country - Country of origin</li>
+                            <li><span class="fk">FK: supplier_ID</span> - References Parts Supplier table</li>
+                        </ul>
+                    </div>
+
+                    <div class="table-info">
+                        <div class="table-title">Parts Supplier Table</div>
+                        <ul class="attribute-list">
+                            <li><span class="pk">PK: supplier_ID</span> - Primary Key</li>
+                            <li>supplier_name - Name of parts supplier</li>
+                            <li>supplier_country - Country of origin</li>
+                            <li>supplier_phone - Contact phone number</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="project-walkthrough">
+                    <h2>Advanced SQL Queries</h2>
+                    <p>The system implements 10 sophisticated queries demonstrating JOINs, WHERE clauses, aggregation functions, and complex filtering logic:</p>
+
+                    <div class="query-example">
+                        <div class="query-title">1. Store Locations by City</div>
+                        <p>Find all store names and addresses in a specific city</p>
+                        <div class="query-code">SELECT store_name, store_address 
+FROM store 
+WHERE store_city = 'Carson';</div>
+                    </div>
+
+                    <div class="query-example">
+                        <div class="query-title">2. Manufacturer Inventory Analytics</div>
+                        <p>Calculate total quantity and average price for cameras from specific manufacturer</p>
+                        <div class="query-code">SELECT manufacturer_id, SUM(camera_quantity) as total_quantity, 
+       AVG(camera_price) as average_price 
+FROM camera
+WHERE camera.manufacturer_id = '9999';</div>
+                    </div>
+
+                    <div class="query-example">
+                        <div class="query-title">3. Supplier Location Filtering</div>
+                        <p>Find all parts suppliers in a specific country</p>
+                        <div class="query-code">SELECT supplier_name 
+FROM partsupplier 
+WHERE supplier_country = 'USA';</div>
+                    </div>
+
+                    <div class="query-example">
+                        <div class="query-title">4. Multi-Table JOIN - Manufacturer Availability</div>
+                        <p>Find manufacturers with inventory in stores at specific location</p>
+                        <div class="query-code">SELECT manufacturer.brand_name, manufacturer.manufacturer_country 
+FROM manufacturer 
+JOIN camera ON manufacturer.manufacturer_id = camera.manufacturer_id 
+JOIN store ON camera.store_id = store.store_id 
+WHERE store.store_city = 'San Pedro';</div>
+                    </div>
+
+                    <div class="query-example">
+                        <div class="query-title">5. Supplier-Store Relationship</div>
+                        <p>Identify which suppliers provide cameras to specific store</p>
+                        <div class="query-code">SELECT partsupplier.supplier_name 
+FROM partsupplier 
+JOIN manufacturer ON partsupplier.supplier_id = manufacturer.supplier_id 
+JOIN camera ON manufacturer.manufacturer_id = camera.manufacturer_id 
+JOIN store ON camera.store_id = store.store_id 
+WHERE store.store_id = '77';</div>
+                    </div>
+
+                    <div class="query-example">
+                        <div class="query-title">6. Inventory Threshold Query</div>
+                        <p>Find stores with inventory above specific quantity threshold</p>
+                        <div class="query-code">SELECT store_name, store_city
+FROM store 
+JOIN camera ON store.store_id = camera.store_id 
+WHERE camera_quantity >= 5;</div>
+                    </div>
+
+                    <div class="query-example">
+                        <div class="query-title">7. Product Availability by Store</div>
+                        <p>Locate stores selling specific camera model</p>
+                        <div class="query-code">SELECT store.store_name, store.store_address 
+FROM store
+JOIN camera ON store.store_id = camera.store_id 
+WHERE camera.camera_name = 'Hero 9';</div>
+                    </div>
+
+                    <div class="query-example">
+                        <div class="query-title">8. Multi-City Inventory Search</div>
+                        <p>Get inventory details for cameras in multiple cities</p>
+                        <div class="query-code">SELECT camera.camera_quantity, camera.camera_name, camera.camera_price
+FROM camera
+JOIN store ON camera.store_id = store.store_id
+WHERE store.store_city = 'Oxnard' OR store.store_city = 'Carson';</div>
+                    </div>
+
+                    <div class="query-example">
+                        <div class="query-title">9. Supplier Product Distribution</div>
+                        <p>Track specific supplier's products across all stores</p>
+                        <div class="query-code">SELECT camera.camera_name, camera.camera_price, camera.camera_quantity
+FROM camera
+JOIN partsupplier ON camera.supplier_id = partsupplier.supplier_id
+JOIN store ON camera.store_id = store.store_id
+WHERE partsupplier.supplier_name = 'Edmund Optics';</div>
+                    </div>
+
+                    <div class="query-example">
+                        <div class="query-title">10. Domestic Business Partnerships</div>
+                        <p>Find manufacturers and suppliers based in same country doing business together</p>
+                        <div class="query-code">SELECT manufacturer.brand_name AS 'American Manufacturer', 
+       partsupplier.supplier_name AS 'American Supplier'
+FROM manufacturer
+JOIN partsupplier ON manufacturer.supplier_id = partsupplier.supplier_id
+WHERE manufacturer.manufacturer_country = 'USA' 
+  AND partsupplier.supplier_country = 'USA';</div>
+                    </div>
+                </section>
+
+                <section class="project-walkthrough">
+                    <h2>Java Swing GUI Application - JDBC Integration</h2>
+                    
+                    <div class="walkthrough-step">
+                        <h4>Interactive Search Interface</h4>
+                        <p>Developed a user-friendly Java Swing application enabling real-time database queries through a GUI search interface. Users can search for cameras by name or by store city without writing SQL code.</p>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>Dynamic Results Table</h4>
+                        <p>Implemented dynamic JTable with JScrollPane for displaying query results. The table shows camera name, price, quantity, store city, and store address in a formatted, easy-to-read layout.</p>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>JDBC Connection Management</h4>
+                        <p>Established secure MySQL connection using JDBC with proper credential management and connection lifecycle handling. Implemented proper resource cleanup with connection.close() to prevent memory leaks.</p>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>Prepared Statements & SQL Injection Prevention</h4>
+                        <p>Utilized PreparedStatement with parameterized queries to prevent SQL injection attacks. Search parameters are safely bound to the query before execution.</p>
+                    </div>
+
+                    <h3>Application Code Highlights</h3>
+                    <div class="jdbc-code">
+<pre>// JDBC Query with Dynamic Search
+String sql = "SELECT camera.camera_name, camera.camera_price, camera.camera_quantity, " +
+             "store.store_city, store.store_address FROM camera " +
+             "INNER JOIN store ON camera.store_id = store.store_id " +
+             "WHERE camera.camera_name LIKE ? OR store.store_city LIKE ?";
+
+PreparedStatement statement = connection.prepareStatement(sql);
+statement.setString(1, "%" + keyword + "%");
+statement.setString(2, "%" + keyword + "%");
+ResultSet resultSet = statement.executeQuery();
+
+// Dynamic Results Processing
+ArrayList&lt;String[]&gt; data = new ArrayList&lt;String[]&gt;();
+while (resultSet.next()) {
+    String[] row = {
+        resultSet.getString("camera_name"),
+        String.valueOf(resultSet.getInt("camera_price")),
+        String.valueOf(resultSet.getInt("camera_quantity")),
+        resultSet.getString("store_city"),
+        resultSet.getString("store_address")
+    };
+    data.add(row);
+}
+
+// GUI Table Creation
+DefaultTableModel model = new DefaultTableModel(
+    data.toArray(new Object[][]{}), 
+    new String[]{"Camera Name", "Price", "Quantity", "City", "Address"}
+);
+table = new JTable(model);</pre>
+                    </div>
+                </section>
+
+                <section class="skills-section">
+                    <h2>Technical Skills Demonstrated</h2>
+                    <ul>
+                        <li><strong>Database Design:</strong> Entity-Relationship Modeling, normalization, primary/foreign key relationships</li>
+                        <li><strong>SQL Expertise:</strong> Complex JOINs, WHERE clauses, GROUP BY, aggregation functions, LIKE wildcards</li>
+                        <li><strong>JDBC Programming:</strong> Connection management, PreparedStatement, ResultSet processing</li>
+                        <li><strong>Java Swing GUI:</strong> JFrame, JPanel, JTable, JScrollPane, event handling with ActionListener</li>
+                        <li><strong>Database Security:</strong> Parameterized queries, SQL injection prevention, secure credential handling</li>
+                        <li><strong>Data Structures:</strong> ArrayList for dynamic data collection, 2D arrays for table data</li>
+                        <li><strong>Error Handling:</strong> SQLException handling, user feedback mechanisms, data validation</li>
+                        <li><strong>Frontend-Backend Integration:</strong> Seamless connection between GUI components and database operations</li>
+                        <li><strong>Query Optimization:</strong> INNER JOIN efficiency, selective column retrieval, indexed searches</li>
+                        <li><strong>Business Logic:</strong> Understanding of supply chain operations, inventory management, multi-location retail</li>
+                    </ul>
+                </section>
+
+                <section class="erd-section">
+                    <h2>Business Impact</h2>
+                    <ul style="list-style-position: inside; margin-left: 20px;">
+                        <li><strong>Operational Efficiency:</strong> Enables store managers to quickly access inventory and supplier information</li>
+                        <li><strong>Supply Chain Visibility:</strong> Tracks relationships between manufacturers, suppliers, and store locations</li>
+                        <li><strong>Inventory Management:</strong> Supports multi-store inventory queries and stock level analysis</li>
+                        <li><strong>Business Intelligence:</strong> Provides analytics on pricing, availability, and product distribution</li>
+                        <li><strong>Scalability:</strong> Database design supports franchise expansion to additional store locations</li>
+                    </ul>
+                </section>
+
+                <div class="navigation-links">
+                    <a href="../categories/backend.html" class="btn btn-secondary">← Back to Backend</a>
+                    <a href="../index.html" class="btn btn-secondary">Home</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Fernando Rodriguez. All rights reserved.</p>
+    </footer>
+</body>
+</html>
