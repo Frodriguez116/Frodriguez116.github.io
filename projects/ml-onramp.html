@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Onramp - Fernando Rodriguez</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        .certification-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .certification-image {
+            max-width: 200px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-container {
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .step-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #333;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        .description {
+            color: #555;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+        
+        .learning-objectives {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .learning-objectives ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .learning-objectives li {
+            margin: 8px 0;
+        }
+
+        .key-concepts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .concept-card {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .concept-card h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">FR</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../categories/artificial-intelligence.html" class="nav-link">AI</a></li>
+                <li><a href="../categories/machine-learning.html" class="nav-link active">ML</a></li>
+                <li><a href="../categories/data-analytics.html" class="nav-link">Data Analytics</a></li>
+                <li><a href="../categories/backend.html" class="nav-link">Backend</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="category-page">
+        <div class="container">
+            <h1>Machine Learning Onramp by MathWorks</h1>
+            <p class="subtitle">Comprehensive Guide to Machine Learning Fundamentals with Hands-On MATLAB Tasks</p>
+
+            <div class="certification-banner">
+                <h2>📜 Certification Completed</h2>
+                <p>Machine Learning Onramp - MathWorks Training Program</p>
+                <img src="https://mathworks.com/images/responsive/company/logo-mathworks-150.svg" alt="MathWorks Logo" class="certification-image">
+            </div>
+
+            <section class="project-item">
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h4>Course Provider</h4>
+                        <p>MathWorks</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Primary Language</h4>
+                        <p>MATLAB</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Topics Covered</h4>
+                        <p>Supervised & Unsupervised Learning</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Focus Areas</h4>
+                        <p>Classification, Data Visualization, Feature Extraction</p>
+                    </div>
+                </div>
+
+                <section class="project-walkthrough">
+                    <h2>Course Overview</h2>
+                    <p>The Machine Learning Onramp is an interactive course that introduces essential machine learning concepts through practical MATLAB implementations. This hands-on training covers data loading, visualization, feature extraction, model training, and performance evaluation - the complete machine learning workflow.</p>
+                    
+                    <div class="learning-objectives">
+                        <h3>Learning Objectives</h3>
+                        <ul>
+                            <li>Load and prepare data for machine learning models using MATLAB tables</li>
+                            <li>Visualize multi-dimensional data effectively for pattern discovery</li>
+                            <li>Understand supervised learning concepts and classification techniques</li>
+                            <li>Extract meaningful features from raw data</li>
+                            <li>Train, evaluate, and validate machine learning models</li>
+                            <li>Apply statistical analysis to improve model performance</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="project-walkthrough">
+                    <h2>Step-by-Step Implementation Process</h2>
+
+                    <!-- STEP 1 -->
+                    <div class="step-container">
+                        <div>
+                            <span class="step-number">1</span>
+                            <span class="step-title">Data Loading & Preparation</span>
+                        </div>
+                        <p class="description">The first step in any machine learning pipeline is to load and examine your data. Using the <code>readtable()</code> function, we import data from text files into a table format for easy manipulation and analysis.</p>
+                        
+                        <div class="code-block"><pre>%% Task 1: Load Letter Data
+% Load coordinate data from text file containing letter points
+% This is typically the first step in feature extraction
+
+letter = readtable("w.txt");
+disp('Data loaded successfully');
+disp(letter);</pre></div>
+                        
+                        <p class="description"><strong>What's Happening:</strong></p>
+                        <ul>
+                            <li><code>readtable("w.txt")</code> - Imports data from the file into a table variable</li>
+                            <li>Table contains X and Y coordinate columns representing letter positions</li>
+                            <li>Data is now ready for visualization and feature extraction</li>
+                            <li>Table format enables easy column access using dot notation (e.g., <code>letter.X</code>)</li>
+                        </ul>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="step-container">
+                        <div>
+                            <span class="step-number">2</span>
+                            <span class="step-title">Data Visualization</span>
+                        </div>
+                        <p class="description">Visualizing data is crucial for understanding patterns and validating data quality before feeding it into machine learning models. We plot the X-Y coordinates to visualize the shape of different letters.</p>
+                        
+                        <div class="code-block"><pre>%% Task 2: Visualize Letter Shapes
+% Plot X-Y coordinates to visualize letter geometry
+% Helps verify data quality before model training
+
+% Create figure with subplots
+figure;
+
+% Plot Letter W
+subplot(1,2,1);
+letter_w = readtable("w.txt");
+plot(letter_w.X, letter_w.Y, 'b-', 'LineWidth', 2);
+axis([-1 1 -1 1]);
+title('Letter W', 'FontSize', 12, 'FontWeight', 'bold');
+xlabel('X Coordinate');
+ylabel('Y Coordinate');
+grid on;
+
+% Plot Letter S
+subplot(1,2,2);
+letter_s = readtable("s.txt");
+plot(letter_s.X, letter_s.Y, 'r-', 'LineWidth', 2);
+axis([-1 1 -1 1]);
+title('Letter S', 'FontSize', 12, 'FontWeight', 'bold');
+xlabel('X Coordinate');
+ylabel('Y Coordinate');
+grid on;</pre></div>
+                        
+                        <p class="description"><strong>What's Happening:</strong></p>
+                        <ul>
+                            <li><code>plot(letter.X, letter.Y)</code> - Plots the X-Y coordinate points as a line</li>
+                            <li><code>axis([-1 1 -1 1])</code> - Sets consistent axis limits for fair comparison between letters</li>
+                            <li><code>subplot()</code> - Creates side-by-side plots for visual comparison</li>
+                            <li>Different colors (blue for W, red for S) help distinguish between letter classes</li>
+                            <li>Grid lines and labels make it easier to read coordinate values and understand the plot</li>
+                        </ul>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="step-container">
+                        <div>
+                            <span class="step-number">3</span>
+                            <span class="step-title">Feature Extraction</span>
+                        </div>
+                        <p class="description">After loading and visualizing the data, we extract meaningful features that capture the essence of each letter. Features might include shape descriptors, statistical properties, or geometric measurements that differentiate between classes.</p>
+                        
+                        <div class="code-block"><pre>%% Task 3: Extract Features from Letter Data
+% Compute statistical features for classification
+
+% Load data
+letter_w = readtable("w.txt");
+letter_s = readtable("s.txt");
+
+% Extract statistical features
+w_mean_x = mean(letter_w.X);
+w_mean_y = mean(letter_w.Y);
+w_std_x = std(letter_w.X);
+w_std_y = std(letter_w.Y);
+w_range_x = max(letter_w.X) - min(letter_w.X);
+w_range_y = max(letter_w.Y) - min(letter_w.Y);
+
+s_mean_x = mean(letter_s.X);
+s_mean_y = mean(letter_s.Y);
+s_std_x = std(letter_s.X);
+s_std_y = std(letter_s.Y);
+s_range_x = max(letter_s.X) - min(letter_s.X);
+s_range_y = max(letter_s.Y) - min(letter_s.Y);
+
+fprintf('Letter W - Mean: (%.3f, %.3f), StdDev: (%.3f, %.3f)\n', ...
+    w_mean_x, w_mean_y, w_std_x, w_std_y);
+fprintf('Letter S - Mean: (%.3f, %.3f), StdDev: (%.3f, %.3f)\n', ...
+    s_mean_x, s_mean_y, s_std_x, s_std_y);</pre></div>
+                        
+                        <p class="description"><strong>What's Happening:</strong></p>
+                        <ul>
+                            <li>Calculate statistical measures (mean, standard deviation, range) from coordinates</li>
+                            <li>These features capture the center, spread, and extent of each letter's shape</li>
+                            <li>Different letters will have distinctly different feature values</li>
+                            <li>Features serve as input variables for machine learning classifiers</li>
+                        </ul>
+                    </div>
+
+                    <!-- STEP 4 -->
+                    <div class="step-container">
+                        <div>
+                            <span class="step-number">4</span>
+                            <span class="step-title">Model Training & Classification</span>
+                        </div>
+                        <p class="description">Once features are extracted, we train a classifier to distinguish between different letters. This is supervised learning - we provide labeled examples and the model learns patterns to classify new data.</p>
+                        
+                        <div class="code-block"><pre>%% Task 4: Train Classification Model
+% Using extracted features to train a classifier
+
+% Prepare training features and labels
+features = [w_mean_x, w_mean_y, w_std_x, w_std_y, w_range_x, w_range_y; 
+            s_mean_x, s_mean_y, s_std_x, s_std_y, s_range_x, s_range_y];
+labels = categorical(['W'; 'S']);
+
+% Create and train classifier (Naive Bayes)
+classifier = fitcnb(features, labels);
+
+% Make predictions on new data
+newFeatures = [0.1, 0.2, 0.15, 0.25, 0.5, 0.6];  % Example feature vector
+prediction = predict(classifier, newFeatures);
+fprintf('Predicted letter: %s\n', prediction);
+
+% Get prediction scores/confidence
+[prediction, score] = predict(classifier, newFeatures);
+fprintf('Prediction confidence: %.2f%%\n', max(score)*100);</pre></div>
+                        
+                        <p class="description"><strong>What's Happening:</strong></p>
+                        <ul>
+                            <li><code>fitcnb()</code> - Trains a Naive Bayes classifier on the feature data</li>
+                            <li>The model learns the probabilistic relationship between features and letter labels</li>
+                            <li><code>predict()</code> - Uses the trained model to classify new data points</li>
+                            <li>Confidence scores indicate prediction certainty</li>
+                            <li>This supervised learning approach enables letter recognition in real applications</li>
+                        </ul>
+                    </div>
+
+                    <!-- STEP 5 -->
+                    <div class="step-container">
+                        <div>
+                            <span class="step-number">5</span>
+                            <span class="step-title">Model Evaluation & Validation</span>
+                        </div>
+                        <p class="description">The final step is to evaluate how well our model performs on unseen data. We use metrics like accuracy, precision, and recall to assess classification quality and identify areas for improvement.</p>
+                        
+                        <div class="code-block"><pre>%% Task 5: Evaluate Model Performance
+% Assess classifier accuracy and performance
+
+% Test on training data
+[predictions, scores] = predict(classifier, features);
+accuracy = sum(predictions == labels) / length(labels);
+fprintf('Training Accuracy: %.2f%%\n', accuracy * 100);
+
+% Display confusion matrix
+confusionMatrix = confusionmat(labels, predictions);
+disp('Confusion Matrix:');
+disp(confusionMatrix);
+
+% Cross-validation for robust evaluation
+cv = cvpartition(labels, 'KFold', 5);
+cvAccuracy = 1 - loss(classifier, features, labels, 'partition', cv);
+fprintf('5-Fold Cross-Validation Accuracy: %.2f%%\n', cvAccuracy * 100);
+
+% Calculate precision and recall
+TP = confusionMatrix(1,1);
+FP = confusionMatrix(2,1);
+FN = confusionMatrix(1,2);
+precision = TP / (TP + FP);
+recall = TP / (TP + FN);
+fprintf('Precision: %.2f%%, Recall: %.2f%%\n', precision*100, recall*100);</pre></div>
+                        
+                        <p class="description"><strong>What's Happening:</strong></p>
+                        <ul>
+                            <li>Cross-validation tests model performance on different data subsets</li>
+                            <li>Accuracy measures the percentage of correct predictions</li>
+                            <li>Confusion matrix shows which classes are classified correctly vs. misclassified</li>
+                            <li>Precision and recall provide nuanced performance metrics for different classes</li>
+                            <li>These metrics help identify if the model needs refinement or more training data</li>
+                        </ul>
+                    </div>
+
+                </section>
+
+                <section class="project-walkthrough">
+                    <h2>Key Machine Learning Concepts</h2>
+                    
+                    <div class="key-concepts">
+                        <div class="concept-card">
+                            <h4>📊 Supervised Learning</h4>
+                            <p>Training models with labeled data to predict outcomes. The model learns the mapping between input features and target labels through labeled examples.</p>
+                        </div>
+                        
+                        <div class="concept-card">
+                            <h4>🔧 Feature Engineering</h4>
+                            <p>Converting raw data into meaningful features that capture important patterns. Good features improve model performance and generalization.</p>
+                        </div>
+                        
+                        <div class="concept-card">
+                            <h4>🎯 Classification</h4>
+                            <p>Predicting which category new data belongs to. In this case, determining whether handwritten input is letter W or S.</p>
+                        </div>
+                        
+                        <div class="concept-card">
+                            <h4>✅ Model Validation</h4>
+                            <p>Testing model performance on unseen data through cross-validation to ensure the model generalizes well to new instances.</p>
+                        </div>
+                        
+                        <div class="concept-card">
+                            <h4>📈 Generalization</h4>
+                            <p>A model's ability to perform well on new, unseen data. Good generalization means the model learned patterns, not memorized training data.</p>
+                        </div>
+                        
+                        <div class="concept-card">
+                            <h4>🔍 Evaluation Metrics</h4>
+                            <p>Quantitative measures of model performance. Accuracy, precision, recall, and F1-score provide different perspectives on classification quality.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-walkthrough">
+                    <h2>Machine Learning Best Practices</h2>
+                    <ul>
+                        <li><strong>Always visualize your data first:</strong> Understand patterns and distributions before training models</li>
+                        <li><strong>Split data properly:</strong> Use training set for model learning and test set for unbiased performance evaluation</li>
+                        <li><strong>Apply cross-validation:</strong> k-fold cross-validation provides robust performance estimates</li>
+                        <li><strong>Scale features appropriately:</strong> Normalize or standardize features to ensure fair model training</li>
+                        <li><strong>Handle class imbalance:</strong> Use appropriate techniques when classes have unequal representation</li>
+                        <li><strong>Document everything:</strong> Record model decisions, feature engineering choices, and parameter settings</li>
+                        <li><strong>Iterate continuously:</strong> Test different features and models to improve performance</li>
+                        <li><strong>Avoid overfitting:</strong> Use regularization and validation to ensure model generalizes well</li>
+                    </ul>
+                </section>
+
+                <section class="skills-section">
+                    <h2>Technical Skills Demonstrated</h2>
+                    <ul>
+                        <li><strong>MATLAB Programming:</strong> Table operations, data loading, statistical functions</li>
+                        <li><strong>Data Visualization:</strong> Multi-subplot plotting, axis control, formatting</li>
+                        <li><strong>Feature Engineering:</strong> Statistical feature extraction, meaningful variable creation</li>
+                        <li><strong>Classification Algorithms:</strong> Naive Bayes classifier implementation and usage</li>
+                        <li><strong>Model Validation:</strong> Cross-validation, confusion matrix analysis, performance metrics</li>
+                        <li><strong>Statistical Analysis:</strong> Mean, standard deviation, range, probability calculations</li>
+                        <li><strong>Data Interpretation:</strong> Understanding model outputs and making informed decisions</li>
+                        <li><strong>ML Workflow:</strong> Complete pipeline from data loading through evaluation</li>
+                    </ul>
+                </section>
+
+                <section class="erd-section">
+                    <h2>Practical Applications</h2>
+                    <ul style="list-style-position: inside; margin-left: 20px;">
+                        <li><strong>Handwriting Recognition:</strong> Classify letters and digits from handwritten input</li>
+                        <li><strong>Character Recognition:</strong> OCR systems for document digitization</li>
+                        <li><strong>Gesture Recognition:</strong> Recognize patterns in coordinate-based gesture data</li>
+                        <li><strong>Quality Control:</strong> Classify products based on measurement features</li>
+                        <li><strong>Biometric Authentication:</strong> Recognize individuals from feature patterns</li>
+                    </ul>
+                </section>
+
+                <div class="navigation-links">
+                    <a href="../categories/machine-learning.html" class="btn btn-secondary">← Back to Machine Learning</a>
+                    <a href="../index.html" class="btn btn-secondary">Home</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Fernando Rodriguez. All rights reserved.</p>
+    </footer>
+</body>
+</html>
