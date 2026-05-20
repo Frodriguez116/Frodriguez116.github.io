@@ -44,22 +44,33 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
-        .certificate-pdf {
+        .certificate-display {
             background: white;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
         }
 
-        .certificate-pdf iframe {
+        .certificate-preview {
             width: 100%;
-            height: 600px;
-            border: none;
+            max-width: 400px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 6px;
+        }
+
+        .certificate-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .certificate-link {
             display: inline-block;
-            margin-top: 15px;
             padding: 12px 24px;
             background: white;
             color: #667eea;
@@ -67,6 +78,7 @@
             border-radius: 5px;
             font-weight: bold;
             transition: all 0.3s ease;
+            border: 2px solid white;
         }
 
         .certificate-link:hover {
@@ -74,13 +86,14 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
+        .certificate-icon {
+            font-size: 1.5em;
+            margin-right: 8px;
+        }
+
         @media (max-width: 1024px) {
             .certification-container {
                 grid-template-columns: 1fr;
-            }
-
-            .certificate-pdf iframe {
-                height: 400px;
             }
         }
         
@@ -193,10 +206,19 @@
                         <p>Machine Learning Onramp</p>
                         <p style="font-weight: bold;">MathWorks Training Program</p>
                         <img src="https://mathworks.com/images/responsive/company/logo-mathworks-150.svg" alt="MathWorks Logo" class="certification-image">
-                        <a href="certificate.pdf" class="certificate-link" download>📥 Download Certificate</a>
+                        <div class="certificate-links">
+                            <a href="certificate.pdf" class="certificate-link" download>
+                                <span class="certificate-icon">📥</span> Download Certificate
+                            </a>
+                            <a href="certificate.pdf" class="certificate-link" target="_blank">
+                                <span class="certificate-icon">🔍</span> View PDF
+                            </a>
+                        </div>
                     </div>
-                    <div class="certificate-pdf">
-                        <iframe src="certificate.pdf" title="ML Onramp Certificate"></iframe>
+                    <div class="certificate-display">
+                        <p style="color: #667eea; font-weight: bold; margin-top: 0;">Certificate Preview</p>
+                        <img src="certificate.pdf" alt="ML Onramp Certificate" class="certificate-preview">
+                        <p style="color: #999; font-size: 0.9em; margin-bottom: 0;">Your official MathWorks certification document</p>
                     </div>
                 </div>
             </div>
