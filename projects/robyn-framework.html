@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robyn Dependency Injection System - Fernando Rodriguez</title>
+
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+    <style>
+        .erd-section {
+            background: #f9f9f9;
+            border-left: 4px solid #007bff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+
+        .walkthrough-step {
+            margin: 15px 0;
+        }
+
+        .highlight-box {
+            background: #eef6ff;
+            border: 1px solid #cfe2ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">FR</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../categories/backend.html" class="nav-link active">Backend</a></li>
+                <li><a href="../categories/artificial-intelligence.html" class="nav-link">AI</a></li>
+                <li><a href="../categories/machine-learning.html" class="nav-link">ML</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="category-page">
+        <div class="container">
+
+            <h1>Robyn Framework Dependency Injection System</h1>
+            <p class="subtitle">Advanced Application, Router, and WebSocket Dependency Injection Architecture</p>
+
+            <section class="project-item">
+
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h4>Project Type</h4>
+                        <p>Backend Framework Feature Design</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Framework</h4>
+                        <p>Robyn (Python Async Web Framework)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Core Feature</h4>
+                        <p>Dependency Injection System</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Scope</h4>
+                        <p>HTTP Routes + WebSockets</p>
+                    </div>
+                </div>
+
+                <section class="erd-section">
+                    <h2>System Overview</h2>
+                    <p>
+                        Designed and implemented a multi-level dependency injection system for the Robyn framework,
+                        enabling Application-level, Router-level, and WebSocket-level dependency injection. This system
+                        allows shared resources such as loggers, caches, and configurations to be injected dynamically
+                        and accessed across HTTP routes and WebSocket connections.
+                    </p>
+                </section>
+
+                <section class="project-walkthrough">
+
+                    <h2>Dependency Injection Architecture</h2>
+
+                    <div class="walkthrough-step">
+                        <h4>Application-Level Dependency Injection</h4>
+                        <p>
+                            Global dependencies are injected at the application level and made available to all routes.
+                            These dependencies persist across the entire lifecycle of the application.
+                        </p>
+
+                        <div class="highlight-box">
+                            <strong>Use Case:</strong> Logging, configuration, shared services
+                        </div>
+
+                        <div class="code-block">
+from robyn import Robyn
+
+app = Robyn(__file__)
+
+GLOBAL_DEPENDENCY = "GLOBAL DEPENDENCY"
+app.inject_global(GLOBAL_DEPENDENCY=GLOBAL_DEPENDENCY)
+
+@app.get("/sync/global_di")
+def sync_global_di(request, global_dependencies):
+    return global_dependencies["GLOBAL_DEPENDENCY"]
+                        </div>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>Router-Level Dependency Injection</h4>
+                        <p>
+                            Router-level dependencies are scoped to specific routers and available to all routes
+                            within that router. This allows modular dependency management.
+                        </p>
+
+                        <div class="highlight-box">
+                            <strong>Use Case:</strong> Feature-specific services, module-scoped caches
+                        </div>
+
+                        <div class="code-block">
+from robyn import Robyn, Request
+
+app = Robyn(__file__)
+
+ROUTER_DEPENDENCY = "ROUTER DEPENDENCY"
+app.inject(ROUTER_DEPENDENCY=ROUTER_DEPENDENCY)
+
+@app.get("/sync/router_di")
+def sync_router_di(request: Request, router_dependencies):
+    return router_dependencies["ROUTER_DEPENDENCY"]
+                        </div>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>WebSocket Dependency Injection</h4>
+                        <p>
+                            WebSocket handlers support both global and router dependencies, enabling shared state
+                            management for real-time communication systems such as chat applications.
+                        </p>
+
+                        <div class="highlight-box">
+                            <strong>Use Case:</strong> Real-time messaging, caching, connection tracking
+                        </div>
+
+                        <div class="code-block">
+from robyn import Robyn
+import logging
+
+app = Robyn(__file__)
+
+app.inject_global(logger=logging.getLogger(__name__))
+app.inject(cache=RedisCache())
+
+@app.websocket("/chat")
+async def chat(websocket, global_dependencies=None, router_dependencies=None):
+    logger = global_dependencies.get("logger")
+    cache = router_dependencies.get("cache")
+
+    logger.info(f"New connection: {websocket.id}")
+
+    while True:
+        message = await websocket.receive_text()
+        cache.set(f"ws_{websocket.id}", message)
+        await websocket.broadcast(f"User {websocket.id}: {message}")
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="project-walkthrough">
+
+                    <h2>Key Design Principles</h2>
+
+                    <div class="walkthrough-step">
+                        <h4>Separation of Concerns</h4>
+                        <p>
+                            Dependencies are scoped at different levels (application, router, WebSocket),
+                            ensuring clean separation between global and feature-specific services.
+                        </p>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>Scalability</h4>
+                        <p>
+                            The DI system supports scalable backend architectures by allowing modular injection
+                            of services without tight coupling between components.
+                        </p>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>Real-Time Support</h4>
+                        <p>
+                            WebSocket integration ensures dependency injection works seamlessly in both HTTP
+                            and real-time communication layers.
+                        </p>
+                    </div>
+
+                </section>
+
+                <section class="skills-section">
+
+                    <h2>Technical Skills Demonstrated</h2>
+
+                    <ul>
+                        <li><strong>Backend Architecture:</strong> Dependency Injection design patterns</li>
+                        <li><strong>Python Frameworks:</strong> Robyn async web framework</li>
+                        <li><strong>System Design:</strong> Scoped dependency management (global, router, websocket)</li>
+                        <li><strong>Real-Time Systems:</strong> WebSocket communication handling</li>
+                        <li><strong>Software Engineering:</strong> Modular and scalable backend design</li>
+                        <li><strong>State Management:</strong> Shared resource injection (logger, cache)</li>
+                        <li><strong>Asynchronous Programming:</strong> Async WebSocket handlers</li>
+                        <li><strong>API Design:</strong> Clean route-level separation and injection flow</li>
+                    </ul>
+
+                </section>
+
+                <section class="erd-section">
+
+                    <h2>Impact & Outcomes</h2>
+
+                    <ul>
+                        <li>Improved modularity of backend services through structured dependency injection</li>
+                        <li>Enabled reusable global services across multiple request types</li>
+                        <li>Enhanced WebSocket functionality with shared state management</li>
+                        <li>Reduced coupling between routes and service implementations</li>
+                        <li>Strengthened framework extensibility for future features</li>
+                    </ul>
+
+                </section>
+
+                <div class="navigation-links">
+                    <a href="../categories/backend.html" class="btn btn-secondary">← Back to Backend</a>
+                    <a href="../index.html" class="btn btn-secondary">Home</a>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Fernando Rodriguez. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
