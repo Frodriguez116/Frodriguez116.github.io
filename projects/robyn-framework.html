@@ -32,12 +32,19 @@
             margin: 15px 0;
         }
 
-        .highlight-box {
-            background: #eef6ff;
-            border: 1px solid #cfe2ff;
-            padding: 15px;
+        .btn-docs {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 14px;
+            background: #0056b3;
+            color: white;
             border-radius: 6px;
-            margin: 15px 0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-docs:hover {
+            background: #004099;
         }
     </style>
 </head>
@@ -61,7 +68,14 @@
         <div class="container">
 
             <h1>Robyn Framework Dependency Injection System</h1>
-            <p class="subtitle">Advanced Application, Router, and WebSocket Dependency Injection Architecture</p>
+            <p class="subtitle">Application, Router, and WebSocket-Level Dependency Injection Architecture</p>
+
+            <!-- OFFICIAL DOC BUTTON -->
+            <a class="btn-docs"
+               href="https://robyn.tech/documentation/en/api_reference/dependency_injection"
+               target="_blank">
+               Official Documentation →
+            </a>
 
             <section class="project-item">
 
@@ -87,98 +101,51 @@
                 <section class="erd-section">
                     <h2>System Overview</h2>
                     <p>
-                        Designed and implemented a multi-level dependency injection system for the Robyn framework,
-                        enabling Application-level, Router-level, and WebSocket-level dependency injection. This system
-                        allows shared resources such as loggers, caches, and configurations to be injected dynamically
-                        and accessed across HTTP routes and WebSocket connections.
+                        Implemented and analyzed Robyn’s multi-level dependency injection system,
+                        supporting Application-level, Router-level, and WebSocket dependency injection.
+                        Enables shared services such as loggers, caches, and configurations across
+                        HTTP routes and real-time WebSocket communication.
                     </p>
                 </section>
 
                 <section class="project-walkthrough">
 
-                    <h2>Dependency Injection Architecture</h2>
+                    <h2>Dependency Injection Levels</h2>
 
                     <div class="walkthrough-step">
                         <h4>Application-Level Dependency Injection</h4>
                         <p>
-                            Global dependencies are injected at the application level and made available to all routes.
-                            These dependencies persist across the entire lifecycle of the application.
+                            Global dependencies injected at the application level are available to all requests
+                            throughout the lifecycle of the server.
                         </p>
 
-                        <div class="highlight-box">
-                            <strong>Use Case:</strong> Logging, configuration, shared services
-                        </div>
-
                         <div class="code-block">
-from robyn import Robyn
-
-app = Robyn(__file__)
-
-GLOBAL_DEPENDENCY = "GLOBAL DEPENDENCY"
-app.inject_global(GLOBAL_DEPENDENCY=GLOBAL_DEPENDENCY)
-
-@app.get("/sync/global_di")
-def sync_global_di(request, global_dependencies):
-    return global_dependencies["GLOBAL_DEPENDENCY"]
+app.inject_global(GLOBAL_DEPENDENCY="GLOBAL DEPENDENCY")
                         </div>
                     </div>
 
                     <div class="walkthrough-step">
                         <h4>Router-Level Dependency Injection</h4>
                         <p>
-                            Router-level dependencies are scoped to specific routers and available to all routes
-                            within that router. This allows modular dependency management.
+                            Router-scoped dependencies are shared across all routes within a specific module,
+                            enabling modular backend design.
                         </p>
 
-                        <div class="highlight-box">
-                            <strong>Use Case:</strong> Feature-specific services, module-scoped caches
-                        </div>
-
                         <div class="code-block">
-from robyn import Robyn, Request
-
-app = Robyn(__file__)
-
-ROUTER_DEPENDENCY = "ROUTER DEPENDENCY"
-app.inject(ROUTER_DEPENDENCY=ROUTER_DEPENDENCY)
-
-@app.get("/sync/router_di")
-def sync_router_di(request: Request, router_dependencies):
-    return router_dependencies["ROUTER_DEPENDENCY"]
+app.inject(ROUTER_DEPENDENCY="ROUTER DEPENDENCY")
                         </div>
                     </div>
 
                     <div class="walkthrough-step">
                         <h4>WebSocket Dependency Injection</h4>
                         <p>
-                            WebSocket handlers support both global and router dependencies, enabling shared state
-                            management for real-time communication systems such as chat applications.
+                            WebSockets support both global and router dependencies, allowing real-time systems
+                            to share services like caching and logging.
                         </p>
 
-                        <div class="highlight-box">
-                            <strong>Use Case:</strong> Real-time messaging, caching, connection tracking
-                        </div>
-
                         <div class="code-block">
-from robyn import Robyn
-import logging
-
-app = Robyn(__file__)
-
-app.inject_global(logger=logging.getLogger(__name__))
-app.inject(cache=RedisCache())
-
-@app.websocket("/chat")
-async def chat(websocket, global_dependencies=None, router_dependencies=None):
-    logger = global_dependencies.get("logger")
-    cache = router_dependencies.get("cache")
-
-    logger.info(f"New connection: {websocket.id}")
-
-    while True:
-        message = await websocket.receive_text()
-        cache.set(f"ws_{websocket.id}", message)
-        await websocket.broadcast(f"User {websocket.id}: {message}")
+logger = global_dependencies.get("logger")
+cache = router_dependencies.get("cache")
                         </div>
                     </div>
 
@@ -186,29 +153,26 @@ async def chat(websocket, global_dependencies=None, router_dependencies=None):
 
                 <section class="project-walkthrough">
 
-                    <h2>Key Design Principles</h2>
+                    <h2>Key Features</h2>
 
                     <div class="walkthrough-step">
-                        <h4>Separation of Concerns</h4>
+                        <h4>Global Resource Sharing</h4>
                         <p>
-                            Dependencies are scoped at different levels (application, router, WebSocket),
-                            ensuring clean separation between global and feature-specific services.
+                            Enables shared access to services like loggers, databases, and caches across all routes.
                         </p>
                     </div>
 
                     <div class="walkthrough-step">
-                        <h4>Scalability</h4>
+                        <h4>Modular Router Design</h4>
                         <p>
-                            The DI system supports scalable backend architectures by allowing modular injection
-                            of services without tight coupling between components.
+                            Supports scoped dependency injection for cleaner and more maintainable backend architecture.
                         </p>
                     </div>
 
                     <div class="walkthrough-step">
-                        <h4>Real-Time Support</h4>
+                        <h4>Real-Time WebSocket Support</h4>
                         <p>
-                            WebSocket integration ensures dependency injection works seamlessly in both HTTP
-                            and real-time communication layers.
+                            Extends dependency injection into WebSocket lifecycle events including connect and message handling.
                         </p>
                     </div>
 
@@ -219,28 +183,27 @@ async def chat(websocket, global_dependencies=None, router_dependencies=None):
                     <h2>Technical Skills Demonstrated</h2>
 
                     <ul>
-                        <li><strong>Backend Architecture:</strong> Dependency Injection design patterns</li>
-                        <li><strong>Python Frameworks:</strong> Robyn async web framework</li>
-                        <li><strong>System Design:</strong> Scoped dependency management (global, router, websocket)</li>
-                        <li><strong>Real-Time Systems:</strong> WebSocket communication handling</li>
-                        <li><strong>Software Engineering:</strong> Modular and scalable backend design</li>
-                        <li><strong>State Management:</strong> Shared resource injection (logger, cache)</li>
-                        <li><strong>Asynchronous Programming:</strong> Async WebSocket handlers</li>
-                        <li><strong>API Design:</strong> Clean route-level separation and injection flow</li>
+                        <li>Backend Framework Design</li>
+                        <li>Dependency Injection Architecture</li>
+                        <li>Python Async Programming</li>
+                        <li>WebSocket Communication Systems</li>
+                        <li>Service Lifecycle Management</li>
+                        <li>Modular System Design</li>
+                        <li>Scalable Backend Patterns</li>
+                        <li>API Architecture Design</li>
                     </ul>
 
                 </section>
 
                 <section class="erd-section">
 
-                    <h2>Impact & Outcomes</h2>
+                    <h2>Impact</h2>
 
                     <ul>
-                        <li>Improved modularity of backend services through structured dependency injection</li>
-                        <li>Enabled reusable global services across multiple request types</li>
-                        <li>Enhanced WebSocket functionality with shared state management</li>
-                        <li>Reduced coupling between routes and service implementations</li>
-                        <li>Strengthened framework extensibility for future features</li>
+                        <li>Improved modularity of backend services</li>
+                        <li>Reduced coupling between application components</li>
+                        <li>Enabled reusable global services across routes</li>
+                        <li>Extended dependency injection to real-time systems</li>
                     </ul>
 
                 </section>
