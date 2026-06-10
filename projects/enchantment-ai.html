@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enchatment AI - Fernando Rodriguez</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+    <style>
+        .project-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .project-content {
+            text-align: center;
+        }
+
+        .project-content h2 {
+            margin-top: 0;
+            font-size: 2em;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card {
+            background: white;
+            color: #333;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .step-container {
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .step-title {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .learning-objectives {
+            background: #eef2ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .key-concepts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .concept-card {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .concept-card h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        @media (max-width: 900px) {
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="../index.html" class="logo">FR</a>
+        <ul class="nav-menu">
+            <li><a href="../index.html" class="nav-link">Home</a></li>
+            <li><a href="../categories/artificial-intelligence.html" class="nav-link active">AI</a></li>
+            <li><a href="../categories/backend.html" class="nav-link">Backend</a></li>
+            <li><a href="../categories/projects.html" class="nav-link">Projects</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="category-page">
+<div class="container">
+
+<h1>Enchatment AI</h1>
+
+<p class="subtitle">
+AI-powered GitHub Issue Management Platform built with Python, OpenAI APIs, and GitHub APIs to automate issue tracking, documentation, and collaboration workflows.
+</p>
+
+<div class="project-banner">
+    <div class="project-container">
+
+        <div class="project-content">
+
+            <h2>🤖 AI Development Project</h2>
+
+            <p>Enchatment AI</p>
+
+            <p><strong>Open Source Project</strong></p>
+
+            <div class="project-links">
+                <a href="https://github.com/Frodriguez116/Enchatment"
+                   target="_blank"
+                   class="project-link">
+                   GitHub Repository
+                </a>
+            </div>
+
+        </div>
+
+        <div class="project-card">
+
+            <h3>Project Highlights</h3>
+
+            <ul>
+                <li>30% reduction in manual documentation effort</li>
+                <li>25% faster issue resolution workflow</li>
+                <li>100+ issues improved with automated traceability</li>
+                <li>OpenAI GPT integration</li>
+                <li>GitHub API automation</li>
+                <li>Automated Gist generation</li>
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+
+<section class="project-item">
+
+<div class="details-grid">
+
+    <div class="detail-item">
+        <h4>Role</h4>
+        <p>Backend Software Engineer</p>
+    </div>
+
+    <div class="detail-item">
+        <h4>Language</h4>
+        <p>Python</p>
+    </div>
+
+    <div class="detail-item">
+        <h4>Technologies</h4>
+        <p>OpenAI API, GitHub API, REST APIs</p>
+    </div>
+
+    <div class="detail-item">
+        <h4>Focus Areas</h4>
+        <p>Automation, AI Integration, Developer Tools</p>
+    </div>
+
+</div>
+
+<section class="project-walkthrough">
+
+    <h2>Project Overview</h2>
+
+    <p>
+        Enchatment AI is a conversational GitHub issue management platform
+        designed to improve software development workflows through automation
+        and artificial intelligence. The project integrates OpenAI's GPT
+        models with GitHub APIs to assist developers with issue management,
+        project documentation, and collaboration.
+    </p>
+
+    <p>
+        One of the core challenges in software development is maintaining
+        detailed documentation while keeping development velocity high.
+        Enchatment AI solves this problem by automatically generating GitHub
+        Gists from conversations and attaching them directly to GitHub issues,
+        preserving technical discussions and decisions for future reference.
+    </p>
+
+    <div class="learning-objectives">
+
+        <h3>Project Goals</h3>
+
+        <ul>
+            <li>Reduce manual documentation effort</li>
+            <li>Automate GitHub issue workflows</li>
+            <li>Improve issue traceability</li>
+            <li>Provide conversational AI assistance</li>
+            <li>Increase team collaboration</li>
+            <li>Improve project documentation quality</li>
+        </ul>
+
+    </div>
+
+</section>
+
+<section class="project-walkthrough">
+
+<h2>System Architecture & Workflow</h2>
+
+<div class="step-container">
+
+    <span class="step-number">1</span>
+    <span class="step-title">GitHub API Integration</span>
+
+    <p>
+        Connected GitHub repositories and issue management workflows through
+        the GitHub API.
+    </p>
+
+<div class="code-block">
+<pre>
+github = Github(token)
+
+repo = github.get_repo(repo_name)
+
+issues = repo.get_issues()
+</pre>
+</div>
+
+</div>
+
+<div class="step-container">
+
+    <span class="step-number">2</span>
+    <span class="step-title">Conversational AI Engine</span>
+
+    <p>
+        Integrated OpenAI GPT models to allow developers to manage GitHub
+        issues through natural language interactions.
+    </p>
+
+<div class="code-block">
+<pre>
+response = client.chat.completions.create(
+    model="gpt-4",
+    messages=conversation_history
+)
+</pre>
+</div>
+
+</div>
+
+<div class="step-container">
+
+    <span class="step-number">3</span>
+    <span class="step-title">Conversation Tracking</span>
+
+    <p>
+        Maintained conversation history to preserve context and improve
+        documentation accuracy.
+    </p>
+
+<div class="code-block">
+<pre>
+conversation_history.append({
+    "role": "user",
+    "content": message
+})
+</pre>
+</div>
+
+</div>
+
+<div class="step-container">
+
+    <span class="step-number">4</span>
+    <span class="step-title">Automated Gist Generation</span>
+
+    <p>
+        Generated GitHub Gists automatically from conversation histories and
+        attached them to issues for permanent documentation.
+    </p>
+
+<div class="code-block">
+<pre>
+gist = github.get_user().create_gist(
+    public=False,
+    files=files
+)
+</pre>
+</div>
+
+</div>
+
+<div class="step-container">
+
+    <span class="step-number">5</span>
+    <span class="step-title">Command Line Interface</span>
+
+    <p>
+        Built a CLI application to simplify issue management and navigation.
+    </p>
+
+<div class="code-block">
+<pre>
+python main.py
+
+1. View Issues
+2. Create Gist
+3. Manage Conversations
+4. Exit
+</pre>
+</div>
+
+</div>
+
+</section>
+
+<section class="project-walkthrough">
+
+<h2>Key Concepts</h2>
+
+<div class="key-concepts">
+
+<div class="concept-card">
+    <h4>🤖 AI Integration</h4>
+    <p>Integrated OpenAI GPT models for conversational issue management.</p>
+</div>
+
+<div class="concept-card">
+    <h4>🔗 API Development</h4>
+    <p>Connected GitHub and OpenAI services through REST APIs.</p>
+</div>
+
+<div class="concept-card">
+    <h4>📝 Documentation Automation</h4>
+    <p>Generated issue documentation automatically from conversations.</p>
+</div>
+
+<div class="concept-card">
+    <h4>⚡ Workflow Automation</h4>
+    <p>Reduced repetitive development and project management tasks.</p>
+</div>
+
+<div class="concept-card">
+    <h4>💬 Conversational Interfaces</h4>
+    <p>Enabled natural language interactions for developers.</p>
+</div>
+
+<div class="concept-card">
+    <h4>👥 Collaboration</h4>
+    <p>Improved transparency and traceability across teams.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="skills-section">
+
+<h2>Project Impact & Results</h2>
+
+<ul>
+    <li><strong>30% Reduction</strong> in manual documentation time through automation.</li>
+    <li><strong>25% Faster</strong> issue resolution using conversational workflows.</li>
+    <li><strong>100+ GitHub Issues</strong> enhanced with automated documentation.</li>
+    <li><strong>Improved Traceability</strong> through automated Gist generation.</li>
+</ul>
+
+</section>
+
+<section class="skills-section">
+
+<h2>Technical Skills Demonstrated</h2>
+
+<ul>
+    <li><strong>Python:</strong> Backend application development</li>
+    <li><strong>OpenAI API:</strong> GPT integration and conversational AI</li>
+    <li><strong>GitHub API:</strong> Issue management automation</li>
+    <li><strong>REST APIs:</strong> Third-party service integration</li>
+    <li><strong>CLI Development:</strong> Command-line tooling</li>
+    <li><strong>Automation:</strong> Workflow optimization</li>
+    <li><strong>Software Engineering:</strong> Backend architecture and design</li>
+    <li><strong>Documentation Systems:</strong> Traceability and project management</li>
+</ul>
+
+</section>
+
+<div class="navigation-links">
+    <a href="../categories/artificial-intelligence.html" class="btn btn-secondary">
+        ← Back to AI Projects
+    </a>
+
+    <a href="../index.html" class="btn btn-secondary">
+        Home
+    </a>
+</div>
+
+</section>
+
+</div>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2026 Fernando Rodriguez. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
