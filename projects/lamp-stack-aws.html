@@ -1,311 +1,215 @@
-<h1>LAMP Stack Deployment on AWS</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMP Stack AWS Deployment - Fernando Rodriguez</title>
 
-<p class="subtitle">
-Cloud infrastructure project demonstrating the deployment, configuration, and automation of a LAMP (Linux, Apache, MySQL, PHP) stack on Amazon EC2 using AWS services and deployment automation tools.
-</p>
+    <link rel="stylesheet" href="../assets/css/styles.css">
 
-<div class="certification-banner">
-    <div class="certification-container">
+    <style>
+        .erd-section {
+            background: #f9f9f9;
+            border-left: 4px solid #007bff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
 
-        <div class="certification-content">
-            <h2>☁️ Cloud Infrastructure Project</h2>
+        .query-example {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
 
-            <p>LAMP Stack on AWS</p>
+        .query-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
 
-            <p style="font-weight:bold;">
-                Amazon Web Services (AWS)
-            </p>
-        </div>
+        .query-code {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+        }
 
-        <div class="certificate-display">
+        .project-walkthrough {
+            margin-top: 20px;
+        }
 
-            <p style="color:#11998e;font-weight:bold;margin-top:0;">
-                Project Highlights
-            </p>
+        .walkthrough-step {
+            margin: 15px 0;
+        }
+    </style>
+</head>
 
-            <ul style="text-align:left;">
-                <li>Deployed a complete LAMP stack on AWS EC2</li>
-                <li>Configured Linux, Apache, MySQL, and PHP services</li>
-                <li>Automated provisioning using Shell Scripts</li>
-                <li>Integrated AWS CLI automation</li>
-                <li>Reduced setup time by 40%</li>
-                <li>Created repeatable deployment workflows</li>
+<body>
+
+    <!-- NAVBAR (MATCHES YOUR TEMPLATE) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">FR</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../categories/backend.html" class="nav-link active">Backend</a></li>
+                <li><a href="../categories/artificial-intelligence.html" class="nav-link">AI</a></li>
+                <li><a href="../categories/machine-learning.html" class="nav-link">ML</a></li>
             </ul>
-
         </div>
+    </nav>
+
+    <main class="category-page">
+        <div class="container">
+
+            <h1>LAMP Stack Deployment on AWS EC2</h1>
+            <p class="subtitle">Cloud Infrastructure Deployment & Automation Using AWS</p>
+
+            <section class="project-item">
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h4>Project Type</h4>
+                        <p>Cloud Infrastructure / Backend Deployment</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Technologies</h4>
+                        <p>AWS EC2, Linux, Apache, MySQL, PHP</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Automation</h4>
+                        <p>Shell Scripting, AWS CLI</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Deployment</h4>
+                        <p>Scalable Web Hosting Environment</p>
+                    </div>
+                </div>
+
+                <section class="erd-section">
+                    <h2>System Overview</h2>
+                    <p>
+                        Designed and deployed a full LAMP (Linux, Apache, MySQL, PHP) stack on Amazon EC2
+                        to host dynamic web applications. The system focuses on cloud-based infrastructure setup,
+                        automation of deployment processes, and scalable server configuration.
+                    </p>
+                </section>
+
+                <section class="project-walkthrough">
+
+                    <h2>Cloud Infrastructure Setup</h2>
+
+                    <div class="walkthrough-step">
+                        <h4>EC2 Instance Provisioning</h4>
+                        <p>
+                            Configured Amazon EC2 instances to host Linux-based server environments,
+                            enabling scalable and reliable cloud deployment for web applications.
+                        </p>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>LAMP Stack Installation</h4>
+                        <p>
+                            Installed and configured Linux, Apache, MySQL, and PHP to establish a full
+                            backend web hosting environment capable of serving dynamic applications.
+                        </p>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>Server Configuration & Security</h4>
+                        <p>
+                            Configured firewall rules, security groups, and permissions to ensure secure
+                            access to deployed applications while maintaining system stability.
+                        </p>
+                    </div>
+
+                    <div class="walkthrough-step">
+                        <h4>Automation with AWS CLI & Shell Scripts</h4>
+                        <p>
+                            Automated server provisioning and setup using shell scripts and AWS CLI commands,
+                            reducing manual deployment time and improving consistency across environments.
+                        </p>
+                    </div>
+
+                </section>
+
+                <section class="project-walkthrough">
+
+                    <h2>Deployment Highlights</h2>
+
+                    <div class="query-example">
+                        <div class="query-title">Automated Provisioning Script</div>
+                        <div class="query-code">
+sudo apt update -y
+sudo apt install apache2 -y
+sudo apt install mysql-server -y
+sudo apt install php libapache2-mod-php php-mysql -y
+                        </div>
+                    </div>
+
+                    <div class="query-example">
+                        <div class="query-title">AWS CLI Instance Launch</div>
+                        <div class="query-code">
+aws ec2 run-instances \
+--image-id ami-0abcdef1234567890 \
+--count 1 \
+--instance-type t2.micro \
+--key-name MyKeyPair \
+--security-groups MySecurityGroup
+                        </div>
+                    </div>
+
+                </section>
 
-    </div>
-</div>
+                <section class="skills-section">
 
-<section class="project-item">
+                    <h2>Technical Skills Demonstrated</h2>
 
-<div class="details-grid">
+                    <ul>
+                        <li><strong>AWS Cloud Infrastructure:</strong> EC2 provisioning and management</li>
+                        <li><strong>Linux Administration:</strong> Server setup, configuration, and management</li>
+                        <li><strong>Web Server Configuration:</strong> Apache setup and optimization</li>
+                        <li><strong>Database Management:</strong> MySQL installation and configuration</li>
+                        <li><strong>Backend Development:</strong> PHP integration for dynamic web applications</li>
+                        <li><strong>Automation:</strong> Shell scripting and AWS CLI workflows</li>
+                        <li><strong>Security:</strong> Firewall rules and EC2 security group configuration</li>
+                        <li><strong>DevOps Fundamentals:</strong> Deployment automation and environment replication</li>
+                    </ul>
 
-    <div class="detail-item">
-        <h4>Platform</h4>
-        <p>AWS EC2</p>
-    </div>
+                </section>
 
-    <div class="detail-item">
-        <h4>Operating System</h4>
-        <p>Linux</p>
-    </div>
+                <section class="erd-section">
 
-    <div class="detail-item">
-        <h4>Technologies</h4>
-        <p>Apache, MySQL, PHP, AWS CLI</p>
-    </div>
+                    <h2>Project Impact</h2>
 
-    <div class="detail-item">
-        <h4>Focus Areas</h4>
-        <p>Cloud Infrastructure, Automation, DevOps</p>
-    </div>
+                    <ul>
+                        <li>Reduced server setup time through automation using shell scripts</li>
+                        <li>Improved deployment consistency across cloud environments</li>
+                        <li>Enabled scalable hosting of dynamic web applications</li>
+                        <li>Strengthened understanding of cloud-based backend infrastructure</li>
+                        <li>Developed hands-on experience with AWS services and Linux systems</li>
+                    </ul>
 
-</div>
+                </section>
 
-<section class="project-walkthrough">
+                <div class="navigation-links">
+                    <a href="../categories/backend.html" class="btn btn-secondary">← Back to Backend</a>
+                    <a href="../index.html" class="btn btn-secondary">Home</a>
+                </div>
 
-    <h2>Project Overview</h2>
+            </section>
+        </div>
+    </main>
 
-    <p>
-        This project involved deploying and configuring a complete
-        LAMP (Linux, Apache, MySQL, PHP) stack on Amazon EC2 to host
-        dynamic web applications in a cloud environment.
-    </p>
+    <footer class="footer">
+        <p>&copy; 2026 Fernando Rodriguez. All rights reserved.</p>
+    </footer>
 
-    <p>
-        To improve deployment efficiency and consistency, shell scripts
-        and AWS CLI commands were used to automate server provisioning
-        and software installation. These automations reduced setup time
-        by approximately 40% while ensuring reliable environment replication.
-    </p>
-
-    <div class="learning-objectives">
-
-        <h3>Project Objectives</h3>
-
-        <ul>
-            <li>Deploy a production-ready LAMP environment</li>
-            <li>Configure AWS cloud infrastructure</li>
-            <li>Automate deployment workflows</li>
-            <li>Improve consistency across environments</li>
-            <li>Reduce manual server configuration</li>
-            <li>Demonstrate cloud administration skills</li>
-        </ul>
-
-    </div>
-
-</section>
-
-<section class="project-walkthrough">
-
-<h2>Deployment Workflow</h2>
-
-<div class="step-container">
-
-    <span class="step-number">1</span>
-    <span class="step-title">AWS EC2 Provisioning</span>
-
-    <p class="description">
-        Launched and configured Amazon EC2 instances to provide
-        cloud-based infrastructure for the LAMP stack.
-    </p>
-
-    <div class="code-block">
-<pre>
-aws ec2 run-instances
---instance-type t2.micro
-</pre>
-    </div>
-
-    <ul>
-        <li>Provisioned EC2 resources</li>
-        <li>Configured networking</li>
-        <li>Established SSH access</li>
-        <li>Configured security groups</li>
-    </ul>
-
-</div>
-
-<div class="step-container">
-
-    <span class="step-number">2</span>
-    <span class="step-title">Linux Configuration</span>
-
-    <p class="description">
-        Prepared the Linux operating system and installed
-        required packages and updates.
-    </p>
-
-    <div class="code-block">
-<pre>
-sudo apt update
-sudo apt upgrade -y
-</pre>
-    </div>
-
-    <ul>
-        <li>Updated packages</li>
-        <li>Configured server environment</li>
-        <li>Managed permissions</li>
-        <li>Improved security</li>
-    </ul>
-
-</div>
-
-<div class="step-container">
-
-    <span class="step-number">3</span>
-    <span class="step-title">Apache Web Server Deployment</span>
-
-    <p class="description">
-        Installed and configured Apache to host
-        web applications and serve HTTP traffic.
-    </p>
-
-    <div class="code-block">
-<pre>
-sudo apt install apache2
-
-sudo systemctl start apache2
-</pre>
-    </div>
-
-    <ul>
-        <li>Installed Apache</li>
-        <li>Configured web services</li>
-        <li>Enabled automatic startup</li>
-        <li>Validated connectivity</li>
-    </ul>
-
-</div>
-
-<div class="step-container">
-
-    <span class="step-number">4</span>
-    <span class="step-title">Database Configuration</span>
-
-    <p class="description">
-        Installed and secured MySQL databases
-        for dynamic application support.
-    </p>
-
-    <div class="code-block">
-<pre>
-sudo apt install mysql-server
-
-sudo mysql_secure_installation
-</pre>
-    </div>
-
-    <ul>
-        <li>Configured MySQL</li>
-        <li>Created databases</li>
-        <li>Created user accounts</li>
-        <li>Applied security settings</li>
-    </ul>
-
-</div>
-
-<div class="step-container">
-
-    <span class="step-number">5</span>
-    <span class="step-title">Automation & Deployment</span>
-
-    <p class="description">
-        Automated provisioning and deployment
-        processes using shell scripts and AWS CLI.
-    </p>
-
-    <div class="code-block">
-<pre>
-#!/bin/bash
-
-sudo apt install php php-mysql -y
-
-sudo systemctl restart apache2
-</pre>
-    </div>
-
-    <ul>
-        <li>Automated installations</li>
-        <li>Reduced setup time by 40%</li>
-        <li>Created repeatable deployments</li>
-        <li>Improved infrastructure consistency</li>
-    </ul>
-
-</div>
-
-</section>
-
-<section class="project-walkthrough">
-
-<h2>Key Cloud Concepts</h2>
-
-<div class="key-concepts">
-
-    <div class="concept-card">
-        <h4>☁️ Cloud Computing</h4>
-        <p>Provisioned and managed infrastructure using AWS services.</p>
-    </div>
-
-    <div class="concept-card">
-        <h4>🐧 Linux Administration</h4>
-        <p>Configured Linux servers and managed system services.</p>
-    </div>
-
-    <div class="concept-card">
-        <h4>🌐 Web Hosting</h4>
-        <p>Hosted web applications using Apache web servers.</p>
-    </div>
-
-    <div class="concept-card">
-        <h4>🗄️ Database Management</h4>
-        <p>Installed and managed MySQL databases.</p>
-    </div>
-
-    <div class="concept-card">
-        <h4>⚡ Automation</h4>
-        <p>Automated deployment workflows using scripts and AWS CLI.</p>
-    </div>
-
-    <div class="concept-card">
-        <h4>🔒 Security</h4>
-        <p>Applied cloud and server security best practices.</p>
-    </div>
-
-</div>
-
-</section>
-
-<section class="skills-section">
-
-<h2>Technical Skills Demonstrated</h2>
-
-<ul>
-    <li><strong>AWS EC2:</strong> Cloud infrastructure deployment</li>
-    <li><strong>Linux:</strong> Server administration and configuration</li>
-    <li><strong>Apache:</strong> Web server deployment</li>
-    <li><strong>MySQL:</strong> Database management</li>
-    <li><strong>PHP:</strong> Dynamic web application support</li>
-    <li><strong>AWS CLI:</strong> Infrastructure automation</li>
-    <li><strong>Shell Scripting:</strong> Automated deployment workflows</li>
-    <li><strong>DevOps:</strong> Infrastructure provisioning and automation</li>
-</ul>
-
-</section>
-
-<section class="erd-section">
-
-<h2>Practical Applications</h2>
-
-<ul style="list-style-position: inside; margin-left:20px;">
-    <li><strong>Web Hosting:</strong> Hosting dynamic web applications on AWS</li>
-    <li><strong>Cloud Infrastructure:</strong> Managing scalable server environments</li>
-    <li><strong>DevOps Automation:</strong> Streamlining deployments through automation</li>
-    <li><strong>Infrastructure as Code:</strong> Creating repeatable deployment processes</li>
-    <li><strong>Database Hosting:</strong> Managing cloud-based application databases</li>
-    <li><strong>Enterprise Systems:</strong> Supporting production-ready web services</li>
-</ul>
-
-</section>
+</body>
+</html>
